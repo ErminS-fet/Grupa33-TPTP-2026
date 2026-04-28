@@ -1,5 +1,5 @@
 # Grupa33-TPTP-2026
-# Naziv projekta: BonPaFening
+# Naziv projekta: BonPoFening
 # Tema: Prateci cijene goriva na benzinskim pumpama u TK
 # Clanovi grupe:
 #      Ime i Prezime | GitHub nalog 
