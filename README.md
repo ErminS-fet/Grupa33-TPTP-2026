@@ -3,7 +3,6 @@
 # Tema: Prateci cijene goriva na benzinskim pumpama u TK
 # Clanovi grupe:
 #      Ime i Prezime | GitHub nalog 
-#      --------------|-------------
 #      Ermin Subasic | ErminS-fet
 #      Erol Vikalo   |
 #      Erol Mesanovic| 
