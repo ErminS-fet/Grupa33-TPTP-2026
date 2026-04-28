@@ -4,6 +4,6 @@
 # Clanovi grupe:
 #      Ime i Prezime | GitHub nalog 
 #      Ermin Subasic | ErminS-fet
-#      Erol Vikalo   |
+#      Erol Vikalo   | erolvikaloBRAT
 #      Erol Mesanovic | erolmesanovic-commits
 # Kratki opis: Stranica je namijenjena da prati cijene goriva na benskinskim pumpama u Tuzlanskom Kantonu, da korisniku pronadje najblizu bensinsku pumpu sa jeftinim ili uslovno odabranim cijenama.
