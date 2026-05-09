@@ -9,116 +9,137 @@
 </head>
 <body>
 
-    <header class="white-header">
+    <!-- ====================================================
+         HEADER - Pozadina, logo, animacija, glavni meni
+         ==================================================== -->
+    <header>
 
-                    <!-- LOGOTIP I NAZIV ANIMACIJA-->
-        <div class="header-content">
-            <img src="06_images/PUMPABON2.png" alt="Logo" class="logo-animation">
-            
+        <!-- Slideshow pozadina -->
+        <div class="background-container">
+            <div class="slide slide1"></div>
+            <div class="slide slide2"></div>
+            <div class="slide slide3"></div>
+            <div class="slide slide4"></div>
+            <div class="slide slide5"></div>
+            <div class="slide slide6"></div>
+            <div class="slide slide7"></div>
+        </div>
+
+        <!-- Zatamnjenje i uvodni overlay -->
+        <div class="dimming-overlay"></div>
+        <div class="color-overlay"></div>
+
+        <!-- Logo i naziv sajta -->
+        <div class="intro-container">
+            <img src="06_images/PUMPABON2.png" alt="PumpaBon logotip" class="logo-animation">
             <h1 class="appearing-text">PUMPA-BON</h1>
         </div>
 
-                    <!-- LOGOTIP I NAZIV ANIMACIJA-->
+        <!-- Glavni navigacijski meni (unutar headera, semantički kao nav) -->
+        <nav class="glavni-meni" aria-label="Glavna navigacija">
+            <ul>
+                <li><a href="01_index.html" target="_self">Glavna Stranica</a></li>
+                <li><a href="02_sadrzaj.html" target="_self">Pronađite Benzinsku</a></li>
+                <li><a href="03_kontakt.html" target="_self">Kontakt</a></li>
+                <li><a href="https://github.com/ErminS-fet/Grupa33-TPTP-2026" target="_blank">GitHub Repozitorij</a></li>
+            </ul>
+        </nav>
 
-                    <!-- POZADINA ANIMACIJA -->
-        
-        <div class="background-container">
-        <div class="slide slide1"></div>
-        <div class="slide slide2"></div>
-        <div class="slide slide3"></div>
-        <div class="slide slide4"></div>
-        <div class="slide slide5"></div>
-        <div class="slide slide6"></div>
-        <div class="slide slide7"></div>
-    </div>
-
-    <div class="dimming-overlay"></div>
-
-                    <!-- POZADINA ANIMACIJA -->
-
-                    <!-- GLAVNI LINKOVI U HEADERU -->
-
-    <nav class="glavni-nav">
-        <ul class="glavni-linkovi">
-            <li><a href="01_index.html">Glavna Stranica</a></li>
-            <li><a href="02_sadrzaj.html">Pronađite Benzinsku</a></li>
-            <li><a href="03_kontatk.html">Kontakt</a></li>
-            <li><a href="https://github.com/ErminS-fet/Grupa33-TPTP-2026">GitHub Repozitorij</a></li>
-        </ul>
-    </nav>
-                    <!-- GLAVNI LINKOVI U HEADERU -->
     </header>
 
-                    <!-- NAV SPOREDNI LINKOVI -->
-
-    <nav class="sporedni linkovi">
+    <!-- ====================================================
+         NAV - Sporedna navigacija / filteri kategorija
+         ==================================================== -->
+    <nav class="sporedni-meni" aria-label="Filteri kategorija">
         <ul>
-            <li>
-                <a class="" href="" target="_self">Placeholder</a>
-            </li>
-            <li>
-                <a class="" href="" target="_self">Placeholder</a>
-            </li>
-            <li>
-                <a class="" href="" target="_self">Placeholder</a>
-            </li>
-            <li>
-                <a class="" href="" target="_self">Placeholder</a>
-            </li>
-            <li>
-                <a class="" href="" target="_self">Placeholder</a>
-            </li>
+            <li><a href="#" data-filter="sve">Sve pumpe</a></li>
+            <li><a href="#" data-filter="petrol">Petrol</a></li>
+            <li><a href="#" data-filter="ina">INA</a></li>
+            <li><a href="#" data-filter="hifa">Hifa Oil</a></li>
+            <li><a href="#" data-filter="bingo">Bingo</a></li>
+            <li><a href="#" data-filter="ostalo">Ostalo</a></li>
         </ul>
     </nav>
 
-                     <!-- NAV SPOREDNI LINKOVI -->
-
-                     <!-- MAIN KARTICE -->
-    
+    <!-- ====================================================
+         MAIN - Kartice benzinskih pumpi
+         ==================================================== -->
     <main>
-        <div class="card container">
-            <div class="card">
-                <img src="">
-                <h3 class="">Naslov</h3>
-                <p class="">Tekst</p>
-                <a class="" href="" target="_blank">Link</a>
-            </div>
-            <!-- Card -->
+        <div class="card-container">
+
+            <article class="card" data-kategorija="petrol">
+                <img src="06_images/SUPER PETROL.jpg" alt="Super Petrol benzinska pumpa Tuzla">
+                <h3>Super Petrol</h3>
+                <p>Jedna od najpoznatijih mreža benzinskih pumpi u Tuzlanskom kantonu. Nudi Euro 95, Euro 98 i dizel gorivo.</p>
+                <a href="02_sadrzaj.html#super-petrol" target="_self">Saznaj više</a>
+            </article>
+
+            <article class="card" data-kategorija="ina">
+                <img src="06_images/BENZINSKA INA.jpg" alt="INA benzinska pumpa Tuzla">
+                <h3>INA Benzinska</h3>
+                <p>INA pumpa sa širokim izborom goriva i dodatnih usluga, uključujući autoplin i ulje za motore.</p>
+                <a href="02_sadrzaj.html#ina" target="_self">Saznaj više</a>
+            </article>
+
+            <article class="card" data-kategorija="bingo">
+                <img src="06_images/BINGO.jpg" alt="Bingo pumpa Tuzla">
+                <h3>Bingo Pumpa</h3>
+                <p>Bingo pumpa u sklopu tržnog centra — pogodna lokacija za punjenje goriva uz kupovinu.</p>
+                <a href="02_sadrzaj.html#bingo" target="_self">Saznaj više</a>
+            </article>
+
+            <article class="card" data-kategorija="ostalo">
+                <img src="06_images/MESIC.jpg" alt="Mešić pumpa Tuzla">
+                <h3>Mešić Pumpa</h3>
+                <p>Lokalna pumpa s povoljnim cijenama goriva i ljubaznim osobljem, popularna među vozačima iz okolnih naselja.</p>
+                <a href="02_sadrzaj.html#mesic" target="_self">Saznaj više</a>
+            </article>
+
+            <article class="card" data-kategorija="hifa">
+                <img src="06_images/HIFA.jpg" alt="Hifa Oil benzinska pumpa Tuzla">
+                <h3>Hifa Oil</h3>
+                <p>Hifa Oil je domaći brend s dugom tradicijom u distribuciji naftnih derivata širom Bosne i Hercegovine.</p>
+                <a href="02_sadrzaj.html#hifa" target="_self">Saznaj više</a>
+            </article>
+
+            <article class="card" data-kategorija="ostalo">
+                <img src="06_images/ADIRA OIL.jpg" alt="Adira Oil benzinska pumpa Tuzla">
+                <h3>Adira Oil</h3>
+                <p>Adira Oil pumpa nudi konkurentne cijene i redovne akcije za vjerne kupce. Dostupna na više lokacija u TK.</p>
+                <a href="02_sadrzaj.html#adira" target="_self">Saznaj više</a>
+            </article>
+
         </div>
-        <!-- Card Container -->
+
+        <!-- Aside (mapa) unutar maina -->
+        <aside>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d45350.5!2d18.67!3d44.54!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475bfb1c9b2b2b2b%3A0x0!2sTuzla!5e0!3m2!1sbs!2sba!4v1680000000000"
+                title="Mapa benzinskih pumpi u Tuzlanskom kantonu"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <p>Mapa prikazuje lokacije benzinskih pumpi u Tuzlanskom kantonu. Kliknite na pumpu za detalje i upute.</p>
+        </aside>
+
     </main>
 
-                    <!-- MAIN KARTICE -->
-
-                    <!-- ARTICLE ASIDE GOOGLE MAPA -->
-
-    <article>
-        <h1>Sve Benzinske Pumpe Sirom TK</h1>
-        <p>Tekst</p>
-
-        <aside>
-            
-        </aside>
-        
-    </article>
-
-                     <!-- ARTICLE ASIDE GOOGLE MAPA -->
-
-                     <!-- SECTION GORIVA SA SLIKAMA I OPISOM -->
-
-    <section>
-        <h1>Gorivo</h1>
-        <p>Opis</p>
-        <img src="">
-    </section>
-
-                     <!-- SECTION GORIVA SA SLIKAMA I OPISOM -->
-
-                     <!-- FOOTER PODACI -->
+    <!-- ====================================================
+         FOOTER - Autorski podaci
+         ==================================================== -->
     <footer>
-        
+        <p>
+            &copy; 2026 PumpaBon |
+            Autori: Student Jedan, Student Dva, Student Tri — Grupa 33 |
+            <a href="https://github.com/ErminS-fet/Grupa33-TPTP-2026" target="_blank">GitHub Repozitorij</a>
+        </p>
     </footer>
-                     <!-- FOOTER PODACI -->
+
+    <!-- Dugme za tamni/svjetli mod -->
+    <button class="dugme-mod" id="dugme-mod" aria-label="Promijeni temu">🌙 Tamni mod</button>
+
+    <script src="05_js/tptpskripte.js"></script>
 
 </body>
 </html>
