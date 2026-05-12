@@ -9,12 +9,19 @@
 </head>
 <body>
 
-    <!-- ====================================================
-         HEADER - Pozadina, logo, animacija, glavni meni
-         ==================================================== -->
-    <header>
-
-        <!-- Slideshow pozadina -->
+                    <!-- Bookmark sa Opcijama -->
+    <div class="top-navbar" id="vrh-navbar">
+        <button class="navbar-dugme" id="dugme-mod" aria-label="Tamni/Svijetli Mod">
+            Tamni/Svijetli Mod
+        </button>
+        <button aria-label="Skoci na Vrh">
+            Skoci na Vrh
+        </button>
+    </div>
+                    <!-- Bookmark sa Opcijama -->
+    
+    <header id="vrh">
+                    <!-- Pozadina Headera sa slikama benzinskih pumpi -->
         <div class="background-container">
             <div class="slide slide1"></div>
             <div class="slide slide2"></div>
@@ -24,122 +31,233 @@
             <div class="slide slide6"></div>
             <div class="slide slide7"></div>
         </div>
-
-        <!-- Zatamnjenje i uvodni overlay -->
         <div class="dimming-overlay"></div>
         <div class="color-overlay"></div>
+                    <!-- Pozadina Headera sa slikama benzinskih pumpi -->
 
-        <!-- Logo i naziv sajta -->
+                    <!-- Logotip i naziv stranice animacija -->
         <div class="intro-container">
-            <img src="06_images/PUMPABON2.png" alt="PumpaBon logotip" class="logo-animation">
-            <h1 class="appearing-text">PUMPA-BON</h1>
+            <img src="06_images/PUMPABON2.png" alt="Logotip" class="logo-animation">
+            <h1 class="appearing-text">
+                PUMPA-BON
+            </h1>
         </div>
+                    <!-- Logotip i naziv stranice animacija -->
 
-        <!-- Glavni navigacijski meni (unutar headera, semantički kao nav) -->
-        <nav class="glavni-meni" aria-label="Glavna navigacija">
+                    <!-- Glavni linkovi za sve cetiri stranice -->
+        <nav class="glavni-meni" aria-label="Glavna Linkovi">
             <ul>
-                <li><a href="01_index.html" target="_self">Glavna Stranica</a></li>
-                <li><a href="02_sadrzaj.html" target="_self">Pronađite Benzinsku</a></li>
-                <li><a href="03_kontakt.html" target="_self">Kontakt</a></li>
-                <li><a href="https://github.com/ErminS-fet/Grupa33-TPTP-2026" target="_blank">GitHub Repozitorij</a></li>
+                <li>
+                    <a href="01_index.html" target="_self">
+                        Glavna Stranica
+                    </a>
+                </li>
+                <li>
+                    <a href="02_sadraj.html" target="_self">
+                        Pronađite Benzinsku
+                    </a>
+                </li>
+                <li>
+                    <a href="03_kontakt.html" target="_self">
+                        Kontakt
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/ErminS-fet/Grupa33-TPTP-2026" target="_blank">
+                        GitHub Repozitorij
+                    </a>
+                </li>
             </ul>
         </nav>
-
+                    <!-- Glavna linkovi za sve cetiri stranice -->
     </header>
 
-    <!-- ====================================================
-         NAV - Sporedna navigacija / filteri kategorija
-         ==================================================== -->
-    <nav class="sporedni-meni" aria-label="Filteri kategorija">
+                    <!-- Sekundarni linkovi koji su vezani za temu -->
+    <section class="aside-horizontalna" aria-label="Sekundarni Linkovi">
+        <p class="aside-naslov">
+            Linkovi
+        </p>
         <ul>
-            <li><a href="#" data-filter="sve">Sve pumpe</a></li>
-            <li><a href="#" data-filter="petrol">Petrol</a></li>
-            <li><a href="#" data-filter="ina">INA</a></li>
-            <li><a href="#" data-filter="hifa">Hifa Oil</a></li>
-            <li><a href="#" data-filter="bingo">Bingo</a></li>
-            <li><a href="#" data-filter="ostalo">Ostalo</a></li>
+            <li class="aside-link" href="https://www.fmt.gov.ba/novosti-2/pregled-uvoza-naftnih-derivata.html" target="_blank">
+                Mjesečni bilten cijena naftnih derivata
+            </li>
+            <li class="aside-link" href="https://tuzla.info/?s=Gorivo" target="_blank">
+                Vijesti o gorivu
+            </li>
+            <li class="aside-link" href="https://tuzlanski.ba/pretraga?keywords=benzinske+pumpe" target="_blank">
+                Vijesti o benzinskim pumpama
+            </li>
+            <li class="aside-link" href="https://tuzlanski.ba/biznis/ekonomija/ko-ima-najvise-benzinskih-pumpi-u-federaciji-bih/442766" target="_blank">
+                Ko ima najviše benzinskih pumpi u Federaciji BiH
+            </li>
+            <li class="aside-link" href="https://tuzlainfo.ba/index.php/tuzlanski-imenik/wpbdp_category/benzinske-pumpe/" target="_blank">
+                Arhiva benzinskih pumpi u Tuzlanskom Kantonu
+            </li>
         </ul>
-    </nav>
+    </section>
+                    <!-- Sekundarni linkovi koji su vezani za temu -->
 
-    <!-- ====================================================
-         MAIN - Kartice benzinskih pumpi
-         ==================================================== -->
     <main>
-        <div class="card-container">
+                    <!-- Kartice koje sadrzavaju informacije i linkove svih benzinskih pumpi na TK -->
+                    <!-- Nije koristena umjetna intelegencija -->
+                    
+        <div id="kartice" class="karusel-wrapper">
+            <button class="karusel-strelica karusel-lijevo" id="strelica-lijevo" aria-label="Prethodne pumpe">
+                &#8592;
+            </button>
 
-            <article class="card" data-kategorija="petrol">
-                <img src="06_images/SUPER PETROL.jpg" alt="Super Petrol benzinska pumpa Tuzla">
-                <h3>Super Petrol</h3>
-                <p>Jedna od najpoznatijih mreža benzinskih pumpi u Tuzlanskom kantonu. Nudi Euro 95, Euro 98 i dizel gorivo.</p>
-                <a href="02_sadrzaj.html#super-petrol" target="_self">Saznaj više</a>
-            </article>
-
-            <article class="card" data-kategorija="ina">
-                <img src="06_images/BENZINSKA INA.jpg" alt="INA benzinska pumpa Tuzla">
-                <h3>INA Benzinska</h3>
-                <p>INA pumpa sa širokim izborom goriva i dodatnih usluga, uključujući autoplin i ulje za motore.</p>
-                <a href="02_sadrzaj.html#ina" target="_self">Saznaj više</a>
-            </article>
-
-            <article class="card" data-kategorija="bingo">
-                <img src="06_images/BINGO.jpg" alt="Bingo pumpa Tuzla">
-                <h3>Bingo Pumpa</h3>
-                <p>Bingo pumpa u sklopu tržnog centra — pogodna lokacija za punjenje goriva uz kupovinu.</p>
-                <a href="02_sadrzaj.html#bingo" target="_self">Saznaj više</a>
-            </article>
-
-            <article class="card" data-kategorija="ostalo">
-                <img src="06_images/MESIC.jpg" alt="Mešić pumpa Tuzla">
-                <h3>Mešić Pumpa</h3>
-                <p>Lokalna pumpa s povoljnim cijenama goriva i ljubaznim osobljem, popularna među vozačima iz okolnih naselja.</p>
-                <a href="02_sadrzaj.html#mesic" target="_self">Saznaj više</a>
-            </article>
-
-            <article class="card" data-kategorija="hifa">
-                <img src="06_images/HIFA.jpg" alt="Hifa Oil benzinska pumpa Tuzla">
-                <h3>Hifa Oil</h3>
-                <p>Hifa Oil je domaći brend s dugom tradicijom u distribuciji naftnih derivata širom Bosne i Hercegovine.</p>
-                <a href="02_sadrzaj.html#hifa" target="_self">Saznaj više</a>
-            </article>
-
-            <article class="card" data-kategorija="ostalo">
-                <img src="06_images/ADIRA OIL.jpg" alt="Adira Oil benzinska pumpa Tuzla">
-                <h3>Adira Oil</h3>
-                <p>Adira Oil pumpa nudi konkurentne cijene i redovne akcije za vjerne kupce. Dostupna na više lokacija u TK.</p>
-                <a href="02_sadrzaj.html#adira" target="_self">Saznaj više</a>
-            </article>
-
+            <div class="karusel-kontejner">
+                <div class="karusel-trak" id="karusel-trak">
+                    <article class="card">
+                        <img src="06_images/SUPER PETROL.jpg" alt="Super Petrol">
+                        <h3>
+                            Super Petrol
+                        </h3>
+                        <p>
+                            Otvorena prije 25 godina sa 10 benzinskih pumpa u BiH. Nudi: BMB-95 i BMB-98, EURO dizel, TNG-LPG, Lož ulje i Bitumen.
+                        </p>
+                        <a href="https://super-petrol.com/o-nama/">
+                            Saznaj više
+                        </a>
+                    </article>
+                    <article class="card">
+                        <img src="06_images/HIFA.jpg" alt="Hifa Petrol">
+                        <h3>
+                            Hifa Petrol
+                        </h3>
+                        <p>
+                            100% domaća benzinska pumpa otvorena 1995. godine. HIFA d.o.o. je među 5 vodećih distributera LUEL-a u FBiH.
+                        </p>
+                        <a href="https://hifa.ba/o-nama/">
+                            Saznaj više
+                        </a>
+                    </article>
+                    <article class="card">
+                        <img src="06_images/GAZPROM.jpg" alt="Gazprom">
+                        <h3>
+                            Gazprom
+                        </h3>
+                        <p>
+                            Osnovano 2003. godine sa ciljom da pouzdano i efikasno obezbjedi prirodni plin i druge energetske resurse, uključujući njihove derivate kupcima.
+                        </p>
+                        <a href="https://www.gazprom.com/about/">
+                            Saznaj više
+                        </a>
+                    </article>
+                    <article class="card">
+                        <img src="06_images/BENZINSKA INA.jpg" alt="INA Benzinska">
+                        <h3>
+                            INA Benzinska
+                        </h3>
+                        <p>
+                            Osnovana 1963. godine u Hrvatskoj. Sastoji se od nekoliko kompanija u potpunom ili djelomičnom vlasništvu INA, d.d.
+                        </p>
+                        <a href="https://www.ina.hr/en/about-ina/profil-kompanije/">
+                            Saznaj više
+                        </a>
+                    </article>
+                    <article class="card">
+                        <img src="06_images/BINGO.jpg" alt="Bingo Petrol">
+                        <h3>
+                            Bingo Pumpa
+                        </h3>
+                        <p>
+                            Kompanija Bingo je prvi put otvorila svoju benzinsku pumpu Bingo Petrol 2022. godine sa ciljem da uvijek ima najniže cijene goriva.
+                        </p>
+                        <a href="https://tuzlanski.ba/biznis/ekonomija/kompanija-bingo-otvorila-benzinsku-pumpu-koja-ima-najnizu-cijenu-goriva-u-tuzli/771913">
+                            Saznaj više
+                        </a>
+                    </article>
+                    <article class="card">
+                        <img src="06_images/MESIC.jpg" alt="Mešić Pumpa">
+                        <h3>
+                            Mešić Pumpa
+                        </h3>
+                        <p>
+                            Lokalna pumpa s povoljnim cijenama goriva i ljubaznim osobljem, popularna među vozačima iz okolnih naselja.
+                        </p>
+                        <a href="https://www.mesic-com.ba/kontakt/">
+                            Saznaj više
+                        </a>
+                    </article>
+                    <article class="card">
+                        <img src="06_images/ADIRA OIL.jpg" alt="Adira Oil">
+                        <h3>
+                            Adira Oil
+                        </h3>
+                        <p>
+                            Adira Oil pumpa nudi konkurentne cijene i redovne akcije za vjerne kupce. Dostupna na više lokacija u TK.
+                        </p>
+                        <a href="https://www.adriaoil.hr/benzinske-postaje/">
+                            Saznaj više
+                        </a>
+                    </article>
+                    <article class="card">
+                        <img src="06_images/NESTRO.jpg" alt="Nestro Petrol">
+                        <h3>
+                            Nestro Petrol
+                        </h3>
+                        <p>
+                            NESTRO PETROL DD upravlja najvećom mrežom benzinskih pumpi u BIH, koja posluje pod imenom NESTRO i uključuje 83 maloprodajna objekta.
+                        </p>
+                        <a href="https://nestropetrol.com/en/about-us/">
+                            Saznaj više
+                        </a>
+                    </article>
+                    <article class="card">
+                        <img src="06_BELAMIONIX.jpg" alt="Belamionix Petrol">
+                        <h3>
+                            Belamionix Petrol
+                        </h3>
+                        <p>
+                            Ima 19 benzinskih pumpi sa 24/7 dostupnost. Kao domaći brend, želi gorvio vrhunskog kvaliteta po najkonkurentnijim cijenama.
+                        </p>
+                        <a href="https://belamionix.ba/o-nama/">
+                            Saznaj više
+                        </a>
+                    </article>
+                    <article class="card">
+                        <img src="06_images/POLO.jpg" alt="Polo">
+                        <h3>
+                            Polo
+                        </h3>
+                        <p>
+                            Osnovana 1996. godine u Kalesiji, započela je pod imenom "Dva Lava" kao lokalna trgovačka kompanija specijalizirana za naftne derivate.
+                        </p>
+                        <a href="http://www.polo.ba/o-nama/">
+                            Saznaj više
+                        </a>
+                    </article>
+                    <article class="card">
+                        <img src="06_images/JUNUZOVIC.jpg" alt="Junuzović-Kopex">
+                        <h3>
+                            Junuzović-Kopex
+                        </h3>
+                        <p>
+                            JUNUZOVIĆ-KOPEX je pokretačka snaga u sektoru rudarstva, nafte i prirodnog gasa od svog osnivanja 1996. godine.
+                        </p>
+                        <a href="https://junuzovic-kopex.ba/o-nama/">
+                            Saznaj više
+                        </a>
+                    </article>
+                </div>
+            </div>
+            <button class="karusel-strelica karusel-desno" id="strelica-desno" aria-label="Sljedeće pumpe">
+                &#8594;
+            </button>
         </div>
-
-        <!-- Aside (mapa) unutar maina -->
-        <aside>
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d45350.5!2d18.67!3d44.54!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475bfb1c9b2b2b2b%3A0x0!2sTuzla!5e0!3m2!1sbs!2sba!4v1680000000000"
-                title="Mapa benzinskih pumpi u Tuzlanskom kantonu"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-            <p>Mapa prikazuje lokacije benzinskih pumpi u Tuzlanskom kantonu. Kliknite na pumpu za detalje i upute.</p>
-        </aside>
-
+                    <!-- Kartice koje sadrzavaju informacije i linkove svih benzinskih pumpi na TK -->
     </main>
 
-    <!-- ====================================================
-         FOOTER - Autorski podaci
-         ==================================================== -->
     <footer>
+                    <!-- Autorski podaci u footeru -->
         <p>
-            &copy; 2026 PumpaBon |
-            Autori: Student Jedan, Student Dva, Student Tri — Grupa 33 |
-            <a href="https://github.com/ErminS-fet/Grupa33-TPTP-2026" target="_blank">GitHub Repozitorij</a>
+            &copy; 2026 PumpaBon | Autori: Erol Vikalo, Ermin Subašić, Erol Mešanović - 2026 
         </p>
+                    <!-- Autorski podaci u footeru -->
     </footer>
 
-    <!-- Dugme za tamni/svjetli mod -->
-    <button class="dugme-mod" id="dugme-mod" aria-label="Promijeni temu">🌙 Tamni mod</button>
-
     <script src="05_js/tptpskripte.js"></script>
-
+    
 </body>
 </html>
