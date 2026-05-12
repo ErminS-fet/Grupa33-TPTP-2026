@@ -1,16 +1,18 @@
 /* ============================================================
    TPTP PROJEKAT - tptpstil.css
    Autor: Grupa 33
-   Opis: Glavni stylesheet za PumpaBon web lokaciju
    ============================================================ */
 
-/* --- CSS VARIJABLE (custom properties) --- */
+/* --- CSS VARIJABLE --- */
 :root {
-    --boja-primarna: #e8a020;       /* Zlatno-narančasta (gorivo/energija) */
-    --boja-sekundarna: #1a1a2e;     /* Tamno plava */
-    --boja-pozadina: #000000;       /* Crna podloga */
-    --boja-tekst: #ffffff;          /* Bijeli tekst */
-    --boja-hover: #ffcc55;          /* Hover naglasak */
+    --boja-primarna: #e8a020;
+    --boja-sekundarna: #1a1a2e;
+    --boja-pozadina: #000000;
+    --boja-tekst: #ffffff;
+    --boja-hover: #ffcc55;
+    --boja-sidebar: #0d0d1a;
+    --boja-aside-pozadina: #0d0d1a;      /* mijenja se s dark/light modom */
+    --boja-aside-tekst: #aaaaaa;
     --font-naslov: 'Revalia', cursive;
     --font-tijelo: 'Segoe UI', sans-serif;
     --razmak-mali: 8px;
@@ -18,12 +20,11 @@
     --razmak-veliki: 32px;
     --tranzicija: 0.3s ease;
     --sjena: 0 4px 20px rgba(0, 0, 0, 0.6);
+    --visina-top-navbar: 48px;
 }
 
 /* --- OSNOVA --- */
-*, *::before, *::after {
-    box-sizing: border-box;
-}
+*, *::before, *::after { box-sizing: border-box; }
 
 body, html {
     margin: 0;
@@ -34,10 +35,60 @@ body, html {
     background-color: var(--boja-pozadina);
     font-family: var(--font-tijelo);
     color: var(--boja-tekst);
+    scroll-behavior: smooth;
 }
 
 /* ============================================================
-   HEADER - SVE STILIZACIJE HEADERA
+   TOP NAVBAR — fixed, uvijek vidljiv na vrhu
+   Sadrži: dark mode toggle, skoči na vrh
+   ============================================================ */
+
+.top-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--visina-top-navbar);
+    z-index: 600;
+    background: var(--boja-sidebar);
+    border-bottom: 1px solid rgba(232, 160, 32, 0.35);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--razmak-mali);
+    padding: 0 var(--razmak-srednji);
+}
+
+.navbar-link,
+.navbar-dugme {
+    display: inline-block;
+    padding: 6px var(--razmak-srednji);
+    color: #aaaaaa;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-family: var(--font-tijelo);
+    background: transparent;
+    border: 1px solid rgba(232, 160, 32, 0.3);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: color var(--tranzicija), border-color var(--tranzicija), background-color var(--tranzicija);
+}
+
+.navbar-link:hover,
+.navbar-dugme:hover {
+    color: var(--boja-tekst);
+    border-color: var(--boja-primarna);
+    background-color: rgba(232, 160, 32, 0.08);
+}
+
+.navbar-link:focus,
+.navbar-dugme:focus {
+    outline: 2px solid var(--boja-primarna);
+    outline-offset: 2px;
+}
+
+/* ============================================================
+   HEADER
    ============================================================ */
 
 header {
@@ -47,71 +98,58 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     overflow: hidden;
+    padding-top: var(--visina-top-navbar);
 }
 
-/* --- SEAMLESS SLIDESHOW SISTEM --- */
 header .background-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     z-index: 1;
 }
 
 header .slide {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0;
-    /* 7 slika x 10s = 70s totalni krug */
     animation: crossFade 70s infinite ease-in-out;
 }
 
-/* Postavljanje slika i njihovog zakašnjenja (delay) - svakih 10s */
-header .slide1 { background-image: url("../06_images/NASLOVNA.png");       animation-delay: 0s; }
-header .slide2 { background-image: url("../06_images/SUPER PETROL.jpg");   animation-delay: 10s; }
-header .slide3 { background-image: url("../06_images/BENZINSKA INA.jpg");  animation-delay: 20s; }
+header .slide1 { background-image: url("../06_images/NASLOVNA.png");      animation-delay: 0s; }
+header .slide2 { background-image: url("../06_images/SUPER PETROL.jpg");  animation-delay: 10s; }
+header .slide3 { background-image: url("../06_images/BENZINSKA INA.jpg"); animation-delay: 20s; }
 header .slide4 { background-image: url("../06_images/ALMY.jpg");          animation-delay: 30s; }
-header .slide5 { background-image: url("../06_images/NEŠKOVIĆ.jpeg");          animation-delay: 40s; }
-header .slide6 { background-image: url("../06_images/MEŠIĆ.jpg");           animation-delay: 50s; }
-header .slide7 { background-image: url("../06_images/ADIRA OIL.jpg");      animation-delay: 60s; }
+header .slide5 { background-image: url("../06_images/NEŠKOVIĆ.jpeg");     animation-delay: 40s; }
+header .slide6 { background-image: url("../06_images/MEŠIĆ.jpg");         animation-delay: 50s; }
+header .slide7 { background-image: url("../06_images/ADRIA OIL.jpg");     animation-delay: 60s; }
 
-/* MATEMATIKA ZA 7 SLIKA (70s ciklus):
-   100% / 7 slika = ~14.28% vremena po slici. */
 @keyframes crossFade {
     0%      { opacity: 0; }
-    2%      { opacity: 1; }     /* Brzi fade in */
-    14.28%  { opacity: 1; }     /* Slika stoji vidljiva */
-    16.28%  { opacity: 0; }     /* Brzi fade out */
+    2%      { opacity: 1; }
+    14.28%  { opacity: 1; }
+    16.28%  { opacity: 0; }
     100%    { opacity: 0; }
 }
 
-/* --- ZATAMNJENJE --- */
 header .dimming-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     background-color: black;
     opacity: 0.6;
     z-index: 2;
 }
 
 header .color-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     background-color: #2c2f33;
     z-index: 3;
     animation: fadeOutColor 0.5s ease-in-out 2.2s forwards;
@@ -121,33 +159,22 @@ header .color-overlay {
     to { opacity: 0; visibility: hidden; }
 }
 
-/* --- INTRO KONTEJNER --- */
 header .intro-container {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    z-index: 10;
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 10;
-    width: 100%;
     text-align: center;
-    animation: moveUp 1.2s cubic-bezier(0.65, 0, 0.35, 1) 2.5s forwards;
+    width: 100%;
 }
 
-@keyframes moveUp {
-    to { top: 22%; }
-}
-
-/* --- LOGOTIP --- */
 header .logo-animation {
     width: 100px;
     height: auto;
     opacity: 0;
     display: block;
     margin: 0 auto;
-    /* Koristimo AI-uz pomoć: simpleSpinGrow animacija radi transform rotate i scale */
     animation: simpleSpinGrow 2s linear 0.2s forwards;
 }
 
@@ -158,13 +185,12 @@ header .logo-animation {
     100% { opacity: 1; transform: rotate(360deg) scale(1.75); }
 }
 
-/* --- NASLOVNI TEKST --- */
 header .appearing-text {
     font-family: var(--font-naslov);
     font-size: 3rem;
     color: var(--boja-tekst);
     letter-spacing: 5px;
-    margin: 25px 0 0 0;
+    margin: 25px 0 30px 0;
     opacity: 0;
     display: block;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
@@ -176,87 +202,265 @@ header .appearing-text {
     100% { opacity: 1; transform: translateY(0); }
 }
 
-/* --- GLAVNI NAVIGACIJSKI MENI (Flexbox) --- */
-header nav.glavni-meni {
-    position: relative;
-    z-index: 20;
-    width: 100%;
-    margin-top: auto;
-    background: rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-top: 1px solid rgba(232, 160, 32, 0.3);
+/* ============================================================
+   GLAVNI MENI
+   ============================================================ */
+
+.glavni-meni {
+    opacity: 0;
+    animation: textFadeIn 0.8s ease-out 2.5s forwards;
 }
 
-header nav.glavni-meni ul {
+.glavni-meni ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;                  /* FLEXBOX za navigaciju */
+    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: var(--razmak-veliki);
+    gap: var(--razmak-mali);
     flex-wrap: wrap;
 }
 
-header nav.glavni-meni ul li a {
+.glavni-meni ul li a {
     display: inline-block;
     font-family: var(--font-naslov);
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     color: var(--boja-tekst);
     text-decoration: none;
-    letter-spacing: 2px;
-    padding: var(--razmak-srednji) var(--razmak-veliki);
-    position: relative;
-    transition: color var(--tranzicija);   /* CSS TRANZICIJA */
+    letter-spacing: 1px;
+    padding: var(--razmak-mali) var(--razmak-srednji);
+    border: 1px solid rgba(232, 160, 32, 0.4);
+    border-radius: 50px;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(4px);
+    transition: background-color var(--tranzicija), color var(--tranzicija), border-color var(--tranzicija);
 }
 
-/* Pseudo-element dekoracija ispod linka */
-header nav.glavni-meni ul li a::after {
-    content: '';
-    position: absolute;
-    bottom: 6px;
-    left: 50%;
-    transform: translateX(-50%) scaleX(0);
-    width: 60%;
-    height: 2px;
+.glavni-meni ul li a:hover {
     background-color: var(--boja-primarna);
-    transition: transform var(--tranzicija);   /* CSS TRANZICIJA na pseudo-elementu */
+    color: var(--boja-sekundarna);
+    border-color: var(--boja-primarna);
 }
 
-/* :hover i ::after pseudo-element */
-header nav.glavni-meni ul li a:hover {
-    color: var(--boja-hover);
-}
-
-header nav.glavni-meni ul li a:hover::after {
-    transform: translateX(-50%) scaleX(1);
-}
-
-/* :focus za pristupačnost */
-header nav.glavni-meni ul li a:focus {
+.glavni-meni ul li a:focus {
     outline: 2px solid var(--boja-primarna);
-    outline-offset: 4px;
-    border-radius: 2px;
+    outline-offset: 3px;
 }
 
-/* :nth-child - naglasi svaki neparni link u navigaciji */
-header nav.glavni-meni ul li:nth-child(odd) a {
+.glavni-meni ul li:nth-child(odd) a { color: var(--boja-primarna); }
+.glavni-meni ul li:nth-child(odd) a:hover { color: var(--boja-sekundarna); }
+
+/* ============================================================
+   ASIDE HORIZONTALNA — ispod headera, iznad kartica
+   Samo navigacijski linkovi u horizontalnom redu
+   Pozadina se mijenja s dark/light modom putem CSS varijable
+   ============================================================ */
+
+.aside-horizontalna {
+    width: 100%;
+    background-color: var(--boja-aside-pozadina);
+    border-top: 2px solid var(--boja-primarna);
+    border-bottom: 2px solid rgba(232, 160, 32, 0.3);
+    padding: var(--razmak-srednji) var(--razmak-veliki);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--razmak-veliki);
+    flex-wrap: wrap;
+    transition: background-color var(--tranzicija), color var(--tranzicija);
+}
+
+.aside-naslov {
+    font-family: var(--font-naslov);
+    font-size: 0.65rem;
     color: var(--boja-primarna);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+    white-space: nowrap;
+    padding-right: var(--razmak-srednji);
+    border-right: 1px solid rgba(232, 160, 32, 0.3);
 }
 
-header nav.glavni-meni ul li:nth-child(odd) a:hover {
-    color: var(--boja-hover);
+.aside-horizontalna ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;   /* VERTIKALNO — linkovi jedan ispod drugog */
+    gap: var(--razmak-mali);
+}
+
+.aside-link {
+    display: inline-block;
+    padding: 8px var(--razmak-srednji);
+    color: var(--boja-aside-tekst);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-family: var(--font-tijelo);
+    border: 1px solid rgba(232, 160, 32, 0.25);
+    border-radius: 50px;
+    background: transparent;
+    cursor: pointer;
+    transition: color var(--tranzicija), border-color var(--tranzicija), background-color var(--tranzicija);
+}
+
+.aside-link:hover {
+    color: var(--boja-sekundarna);
+    border-color: var(--boja-primarna);
+    background-color: var(--boja-primarna);
+}
+
+.aside-link:focus {
+    outline: 2px solid var(--boja-primarna);
+    outline-offset: 2px;
+}
+
+/* neparni linkovi malo naglašeniji */
+.aside-horizontalna ul li:nth-child(odd) .aside-link {
+    border-color: rgba(232, 160, 32, 0.5);
 }
 
 /* ============================================================
-   NAV - SPOREDNA NAVIGACIJA / FILTERI
+   SECTION — Mapa + Činjenice (ispod kartica, iznad footera)
+   ============================================================ */
+
+.sekcija-mapa-cinjenice {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0;
+    border-top: 2px solid var(--boja-primarna);
+    border-bottom: 2px solid rgba(232, 160, 32, 0.3);
+    background-color: var(--boja-aside-pozadina);
+    transition: background-color var(--tranzicija);
+}
+
+.sekcija-naslov {
+    font-family: var(--font-naslov);
+    font-size: 0.85rem;
+    color: var(--boja-primarna);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 var(--razmak-srednji) 0;
+    padding-bottom: var(--razmak-mali);
+    border-bottom: 1px solid rgba(232, 160, 32, 0.3);
+}
+
+/* --- LIJEVO: Mapa --- */
+.mapa-kontejner {
+    flex: 1;
+    padding: var(--razmak-veliki);
+    border-right: 1px solid rgba(232, 160, 32, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.mapa-placeholder {
+    flex: 1;
+    min-height: 320px;
+    background: rgba(232, 160, 32, 0.04);
+    border: 2px dashed rgba(232, 160, 32, 0.3);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--razmak-mali);
+    color: var(--boja-aside-tekst);
+    font-size: 0.85rem;
+    text-align: center;
+    transition: background-color var(--tranzicija);
+}
+
+.mapa-ikona { font-size: 3rem; }
+
+.mapa-placeholder p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.mapa-placeholder small {
+    font-size: 0.75rem;
+    opacity: 0.6;
+}
+
+/* --- DESNO: Činjenice --- */
+.cinjenice-kontejner {
+    flex: 1;
+    padding: var(--razmak-veliki);
+    display: flex;
+    flex-direction: column;
+}
+
+.cinjenice-lista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--razmak-srednji);
+    flex: 1;
+}
+
+.cinjenica {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--razmak-srednji);
+    padding: var(--razmak-srednji);
+    border-left: 3px solid rgba(232, 160, 32, 0.3);
+    border-radius: 0 6px 6px 0;
+    background: rgba(232, 160, 32, 0.04);
+    transition: border-left-color var(--tranzicija), background-color var(--tranzicija);
+}
+
+.cinjenica:hover {
+    border-left-color: var(--boja-primarna);
+    background: rgba(232, 160, 32, 0.09);
+    animation: pulsiranje 1s ease;
+}
+
+.cinjenica-broj {
+    font-family: var(--font-naslov);
+    font-size: 1.2rem;
+    color: var(--boja-primarna);
+    flex-shrink: 0;
+    line-height: 1;
+    opacity: 0.6;
+}
+
+.cinjenica div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.cinjenica strong {
+    font-size: 0.88rem;
+    color: var(--boja-tekst);
+    font-family: var(--font-tijelo);
+    transition: color var(--tranzicija);
+}
+
+.cinjenica p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--boja-aside-tekst);
+    line-height: 1.55;
+    transition: color var(--tranzicija);
+}
+
+/* ============================================================
+   NAV — FILTER BAR
+   sticky ispod top navbara
    ============================================================ */
 
 nav.sporedni-meni {
     position: sticky;
-    top: 0;
+    top: var(--visina-top-navbar);
     z-index: 100;
     background: var(--boja-sekundarna);
     border-bottom: 2px solid var(--boja-primarna);
@@ -298,22 +502,69 @@ nav.sporedni-meni ul li a:focus {
 }
 
 /* ============================================================
-   MAIN - KARTICE (CSS GRID)
+   MAIN + KARUSEL
    ============================================================ */
 
 main {
-    max-width: 1200px;
-    margin: var(--razmak-veliki) auto;
-    padding: 0 var(--razmak-srednji);
+    padding: var(--razmak-veliki) var(--razmak-srednji);
 }
 
-.card-container {
-    display: grid;                                          /* CSS GRID */
-    grid-template-columns: repeat(3, 1fr);                 /* 3 kolone na desktopu */
-    gap: var(--razmak-veliki);
+/* Wrapper karusela: strelice + kontejner u flexbox redu */
+.karusel-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--razmak-mali);
+    scroll-margin-top: calc(var(--visina-top-navbar) + 50px);
 }
 
-.card {
+/* Strelice */
+.karusel-strelica {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    background: rgba(232, 160, 32, 0.15);
+    border: 2px solid rgba(232, 160, 32, 0.5);
+    border-radius: 50%;
+    color: var(--boja-primarna);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color var(--tranzicija), border-color var(--tranzicija), transform var(--tranzicija);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.karusel-strelica:hover {
+    background-color: var(--boja-primarna);
+    border-color: var(--boja-primarna);
+    color: var(--boja-sekundarna);
+    transform: scale(1.1);
+}
+
+.karusel-strelica:focus {
+    outline: 2px solid var(--boja-primarna);
+    outline-offset: 2px;
+}
+
+/* Kontejner koji maskira overflow — prikazuje samo 4 kartice */
+.karusel-kontejner {
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Trak koji se pomjera translateX-om — sadrži sve kartice u redu */
+.karusel-trak {
+    display: flex;
+    flex-direction: row;
+    gap: var(--razmak-srednji);
+    transition: transform 0.4s ease;
+}
+
+/* Svaka kartica zauzima tačno 25% traka minus razmaci */
+.karusel-trak .card {
+    flex: 0 0 calc(25% - 12px);
+    min-width: 0;
     background: rgba(26, 26, 46, 0.85);
     border: 1px solid rgba(232, 160, 32, 0.2);
     border-radius: 10px;
@@ -321,37 +572,37 @@ main {
     box-shadow: var(--sjena);
     display: flex;
     flex-direction: column;
-    transition: transform var(--tranzicija), box-shadow var(--tranzicija);   /* CSS TRANZICIJA */
+    transition: transform var(--tranzicija), box-shadow var(--tranzicija);
 }
 
-.card:hover {
+.karusel-trak .card:hover {
     transform: translateY(-6px);
     box-shadow: 0 8px 30px rgba(232, 160, 32, 0.3);
 }
 
-.card img {
+.karusel-trak .card img {
     width: 100%;
-    height: 180px;
+    height: 160px;
     object-fit: cover;
 }
 
-.card h3 {
+.karusel-trak .card h3 {
     font-family: var(--font-naslov);
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: var(--boja-primarna);
     margin: var(--razmak-srednji) var(--razmak-srednji) var(--razmak-mali);
     letter-spacing: 1px;
 }
 
-.card p {
-    font-size: 0.9rem;
+.karusel-trak .card p {
+    font-size: 0.82rem;
     color: #cccccc;
     margin: 0 var(--razmak-srednji) var(--razmak-srednji);
     flex-grow: 1;
     line-height: 1.5;
 }
 
-.card a {
+.karusel-trak .card a {
     display: block;
     margin: 0 var(--razmak-srednji) var(--razmak-srednji);
     padding: var(--razmak-mali) var(--razmak-srednji);
@@ -359,47 +610,16 @@ main {
     color: var(--boja-sekundarna);
     text-decoration: none;
     font-family: var(--font-naslov);
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     letter-spacing: 1px;
     border-radius: 4px;
     text-align: center;
     transition: background-color var(--tranzicija);
 }
 
-.card a:hover {
-    background-color: var(--boja-hover);
-}
+.karusel-trak .card a:hover { background-color: var(--boja-hover); }
 
-/* Kartice sakrivene filterom */
-.card.hidden {
-    display: none;
-}
-
-/* ============================================================
-   ASIDE
-   ============================================================ */
-
-aside {
-    background: rgba(26, 26, 46, 0.85);
-    border: 1px solid rgba(232, 160, 32, 0.2);
-    border-radius: 10px;
-    padding: var(--razmak-srednji);
-    margin: var(--razmak-veliki) auto;
-    max-width: 1200px;
-}
-
-aside iframe {
-    width: 100%;
-    height: 300px;
-    border: none;
-    border-radius: 6px;
-}
-
-aside p {
-    font-size: 0.9rem;
-    color: #cccccc;
-    margin-top: var(--razmak-mali);
-}
+.karusel-trak .card.hidden { display: none; }
 
 /* ============================================================
    FOOTER
@@ -420,33 +640,109 @@ footer a {
     transition: color var(--tranzicija);
 }
 
-footer a:hover {
-    color: var(--boja-hover);
-}
+footer a:hover { color: var(--boja-hover); }
 
 /* ============================================================
    TAMNI / SVJETLI MOD
+   Mijenja --boja-aside-pozadina i --boja-aside-tekst
    ============================================================ */
 
 body.light-mode {
     --boja-pozadina: #f5f0e8;
     --boja-tekst: #1a1a2e;
     --boja-sekundarna: #e0d8c8;
+    --boja-sidebar: #d0c8b8;
+    --boja-aside-pozadina: #ffffff;
+    --boja-aside-tekst: #2a2a2a;
     background-color: var(--boja-pozadina);
     color: var(--boja-tekst);
 }
 
-body.light-mode .card {
+body.light-mode .karusel-trak .card {
     background: rgba(255, 255, 255, 0.9);
     border-color: rgba(232, 160, 32, 0.4);
 }
 
-body.light-mode aside {
-    background: rgba(255, 255, 255, 0.9);
+/* Tekst kartica u light modu — tamniji */
+body.light-mode .karusel-trak .card p {
+    color: #3a3a3a;
+}
+
+body.light-mode .aside-link {
+    color: #1a1a2e;
+    border-color: rgba(26, 26, 46, 0.25);
+}
+
+body.light-mode .mapa-placeholder {
+    color: #444444;
+}
+
+/* Top navbar u light modu */
+body.light-mode .top-navbar {
+    background: #d0c8b8;
+    border-bottom-color: rgba(232, 160, 32, 0.5);
+}
+
+body.light-mode .navbar-link,
+body.light-mode .navbar-dugme {
+    color: #1a1a2e;
+    border-color: rgba(26, 26, 46, 0.3);
+}
+
+body.light-mode .navbar-link:hover,
+body.light-mode .navbar-dugme:hover {
+    color: #1a1a2e;
+    background-color: rgba(232, 160, 32, 0.2);
+}
+
+/* Filter nav u light modu */
+body.light-mode nav.sporedni-meni {
+    background: #cfc7b7;
+}
+
+body.light-mode nav.sporedni-meni ul li a {
+    color: #1a1a2e;
+}
+
+/* H1 "PUMPA-BON" i glavni meni — header ima tamnu sliku pozadine,
+   pa tekst ostaje bijel. Ali u light modu dodajemo sjenu da se lijepo ističe. */
+body.light-mode header .appearing-text {
+    color: #ffffff;
+    text-shadow: 2px 2px 12px rgba(0,0,0,0.85), 0 0 30px rgba(0,0,0,0.6);
+}
+
+body.light-mode .glavni-meni ul li a {
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.45);
+    border-color: rgba(255, 255, 255, 0.5);
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+body.light-mode .glavni-meni ul li:nth-child(odd) a {
+    color: var(--boja-primarna);
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+/* Činjenice sekcija u light modu */
+body.light-mode .cinjenica strong {
+    color: #1a1a2e;
+}
+
+body.light-mode .cinjenica p {
+    color: #444444;
+}
+
+body.light-mode .sekcija-naslov {
+    color: #c07800;   /* malo tamnija narandžasta da se vidi na bijeloj */
+}
+
+/* Footer u light modu */
+body.light-mode footer {
+    color: #444444;
 }
 
 /* ============================================================
-   CSS ANIMACIJA - pulsiranje dugmeta (bonus @keyframes)
+   CSS ANIMACIJA — pulsiranje (bonus @keyframes)
    ============================================================ */
 
 @keyframes pulsiranje {
@@ -454,91 +750,68 @@ body.light-mode aside {
     50%       { box-shadow: 0 0 0 10px rgba(232, 160, 32, 0); }
 }
 
-.dugme-mod {
-    position: fixed;
-    bottom: var(--razmak-veliki);
-    right: var(--razmak-veliki);
-    z-index: 999;
-    background: var(--boja-primarna);
-    color: var(--boja-sekundarna);
-    border: none;
-    border-radius: 50px;
-    padding: var(--razmak-mali) var(--razmak-srednji);
-    font-family: var(--font-naslov);
-    font-size: 0.75rem;
-    letter-spacing: 1px;
-    cursor: pointer;
-    animation: pulsiranje 2s infinite;
-    transition: background-color var(--tranzicija);
-}
-
-.dugme-mod:hover {
-    background-color: var(--boja-hover);
-}
-
 /* ============================================================
-   MEDIA QUERIES - RESPONZIVNOST
+   MEDIA QUERIES — RESPONZIVNOST
    ============================================================ */
 
 /* TABLET (600px - 900px) */
 @media (max-width: 900px) {
-    .card-container {
-        grid-template-columns: repeat(2, 1fr);   /* 2 kolone na tabletu */
+    .aside-horizontalna {
+        padding: var(--razmak-srednji) var(--razmak-srednji);
+        gap: var(--razmak-srednji);
     }
 
-    header .appearing-text {
-        font-size: 2rem;
-        letter-spacing: 3px;
+    /* Na tabletu prikazujemo 2 kartice */
+    .karusel-trak .card {
+        flex: 0 0 calc(50% - 8px);
     }
 
-    header nav.glavni-meni ul {
-        gap: var(--razmak-mali);
+    header .appearing-text { font-size: 2rem; }
+
+    /* Sekcija mapa+činjenice: vertikalno na tabletu */
+    .sekcija-mapa-cinjenice {
+        flex-direction: column;
     }
 
-    header nav.glavni-meni ul li a {
-        padding: var(--razmak-mali) var(--razmak-srednji);
-        font-size: 0.75rem;
+    .mapa-kontejner {
+        border-right: none;
+        border-bottom: 1px solid rgba(232, 160, 32, 0.2);
+    }
+
+    .mapa-placeholder {
+        min-height: 260px;
     }
 }
 
 /* MOBITEL (< 600px) */
 @media (max-width: 600px) {
-    .card-container {
-        grid-template-columns: 1fr;   /* 1 kolona na mobitelu */
+    /* Na mobitelu prikazujemo 1 karticu */
+    .karusel-trak .card {
+        flex: 0 0 100%;
     }
 
-    header .appearing-text {
-        font-size: 1.4rem;
-        letter-spacing: 2px;
+    header .appearing-text { font-size: 1.4rem; letter-spacing: 2px; }
+    header .logo-animation { width: 70px; }
+
+    .glavni-meni ul { flex-direction: column; gap: var(--razmak-mali); }
+
+    nav.sporedni-meni ul { flex-direction: column; align-items: stretch; }
+    nav.sporedni-meni ul li a { text-align: center; }
+
+    .top-navbar { flex-wrap: wrap; height: auto; padding: var(--razmak-mali) var(--razmak-srednji); }
+
+    .aside-horizontalna {
+        padding: var(--razmak-mali) var(--razmak-srednji);
     }
 
-    header .logo-animation {
-        width: 70px;
+    .aside-naslov { display: none; }
+
+    .mapa-kontejner,
+    .cinjenice-kontejner {
+        padding: var(--razmak-srednji);
     }
 
-    header nav.glavni-meni ul {
-        flex-direction: column;
-        gap: 0;
-    }
-
-    header nav.glavni-meni ul li a {
-        font-size: 0.7rem;
-        padding: var(--razmak-mali);
-    }
-
-    nav.sporedni-meni ul {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    nav.sporedni-meni ul li a {
-        text-align: center;
-        padding: var(--razmak-mali);
-    }
-
-    .dugme-mod {
-        bottom: var(--razmak-srednji);
-        right: var(--razmak-srednji);
-        font-size: 0.65rem;
+    .mapa-placeholder {
+        min-height: 220px;
     }
 }
