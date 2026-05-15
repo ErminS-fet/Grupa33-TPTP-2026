@@ -1,1 +1,135 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PumpaBon - Glavna Stranica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Revalia&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="04_css/tptpstil.css">
+</head>
+<body>
 
+                    <!-- Bookmark sa Opcijama -->
+    <div class="top-navbar" id="vrh-navbar">
+        <button class="navbar-dugme" id="dugme-mod" aria-label="Tamni/Svijetli Mod">
+            Tamni/Svijetli Mod
+        </button>
+        <button aria-label="Skoci na Vrh">
+            Skoci na Vrh
+        </button>
+    </div>
+                    <!-- Bookmark sa Opcijama -->
+    
+    <header id="vrh">
+                    <!-- Pozadina Headera sa slikama benzinskih pumpi -->
+        <div class="background-container">
+            <div class="slide slide1"></div>
+            <div class="slide slide2"></div>
+            <div class="slide slide3"></div>
+            <div class="slide slide4"></div>
+            <div class="slide slide5"></div>
+            <div class="slide slide6"></div>
+            <div class="slide slide7"></div>
+        </div>
+        <div class="dimming-overlay"></div>
+        <div class="color-overlay"></div>
+                    <!-- Pozadina Headera sa slikama benzinskih pumpi -->
+
+                    <!-- Logotip i naziv stranice animacija -->
+        <div class="intro-container">
+            <img src="06_images/PUMPABON2.png" alt="Logotip" class="logo-animation">
+            <h1 class="appearing-text">
+                PUMPA-BON
+            </h1>
+                    <!-- Logotip i naziv stranice animacija -->
+
+                    <!-- Glavni linkovi za sve cetiri stranice -->
+        <nav class="glavni-meni" aria-label="Glavna Linkovi">
+            <ul>
+                <li>
+                    <a href="01_index.html" target="_self">
+                        Glavna Stranica
+                    </a>
+                </li>
+                <li>
+                    <a href="02_sadraj.html" target="_self">
+                        Pronađite Benzinsku
+                    </a>
+                </li>
+                <li>
+                    <a href="03_kontakt.html" target="_self">
+                        Kontakt
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/ErminS-fet/Grupa33-TPTP-2026" target="_blank">
+                        GitHub Repozitorij
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        </div>
+                    <!-- Glavna linkovi za sve cetiri stranice -->
+    </header>
+    <main>
+                    <!-- Kontakt forma -->
+      <h1>Kontakt</h1>
+      <form>
+        <label for="fname">Ime</label><br>
+        <input type="text" id="fname" name="fname" placeholder="Vaše ime..."><br>
+        <label for="lname">Prezime</label><br>
+        <input type="text" id="lname" name="lname" placeholder="Vaše prezime..."><br>
+        <label for="mail">E-mail adresa</label><br>
+        <input type="text" id="mail" name="mail" placeholder="mail@adresa.com..."><br>
+        <label for="phone">Broj telefona</label><br>
+        <input type="text" id="phone" name="phone" placeholder="012/345/678..."><br>
+        <label for="temaupita">Tema upita</label><br>
+        <select>
+          <option name="temaupita" value="greska">Grešku koju ste primjetili</option>
+          <option name="temaupita" value="ostranici">Pitanje vezano za stranicu</option>
+          <option name="temaupita" value="oprojektu">Pitanje o našem projektu</option>
+          <option name="temaupita" value="ostalo">Ostalo</option>
+        </select>
+        <label for="textarea">Vaša poruka</label><br>
+        <textarea name="textarea" rows="10" colums="30" placeholder="Vaša poruka...">
+        </textarea><br><br>
+        <input type="submit" value="Podesite"><input type="button" value="Izbrišite">
+      </form>
+                      <!-- Kontakt forma -->
+    </main>
+
+    <section>
+                      <!-- Sekcija o našoj stranici  -->
+      <h1>O stranici</h1>
+      <p>Stranica je namjeljena da prati cijenu goriva na različitim benzinskim pumpama širom Tuzlanskog Kantona i sastoji se od tri glavne stranice.</p>
+      <img src="" alt="Glavna Stranica">
+      <p>Naša glavna stranica sadrži linkove koje su relevantne za gorivo, kao i opšte informacije o benzinskim pumpama koje se nalaze u Tuzlanskom Kantonu</p>
+      <img src="" alt="Pronađite Benzinsku">
+      <p>Ovdje se nalazi najbitnija funkcija našeg projekta, to jeste pronalaženje najbliže benzinske pumpe sa jeftinim cijenama vašeg traženog goriva kao i tabela koja prati cijene goriva.</p>
+      <img src="" alt="Kontakt Stranica">
+      <p>Stranicu na koju se trenutno nalazite služi za kontaktiranje nas u slučaju da imate neko pitanje o stranici, ako ste pronašli grešku, i slićno.</p>
+                      <!-- Sekcija o našoj stranici  -->
+    </section>
+
+    <article>
+                      <!-- Article o našem projektu -->
+      <h1>O nama</h1>
+      <p>Mi smo studenti prve godine na Fakultetu elektrotehnike u Tuzli 2025/2026. Ova stranica je napravljena kao završni projekat iz predmeta Tehnologije za Podršku Tehničkom Pisanju sa prof. dr. Samra Mujačić kao mentorom.</p>
+      <aside>
+        <img src="" alt="">
+      </aside>
+      <p>HTML kod i strukturu stranice je radio Ermin Subašić, CSS kod i dizajn stranice je radio Erol Vikalo i JavaScript kod i logiku stranice je radio Erol Mešanović.</p>
+    </article>
+                      <!-- Article o našem projektu -->
+    <footer>
+                    <!-- Autorski podaci u footeru -->
+          <p>
+              &copy; 2026 PumpaBon | Autori: Erol Vikalo, Ermin Subašić, Erol Mešanović - 2026 
+          </p>
+                    <!-- Autorski podaci u footeru -->
+      </footer>
+
+      <script src="05_js/tptpskripte.js"></script>
+  
+</body>
+</html>
