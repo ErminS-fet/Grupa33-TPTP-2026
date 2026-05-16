@@ -526,4 +526,207 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   }
+  /* ============================================================
+   5. PRETRAGA NAJJEFTINIJE BENZINSKE (02_sadrzaj.html)
+   ============================================================ */
+
+  const formaPretraga = document.getElementById("pretraga");
+
+  if (formaPretraga) {
+    const lokacijaInput = document.getElementById("lokacija");
+    const gorivoSelect = document.getElementById("vrstagoriva");
+    const rastojanjeInput = document.getElementById("rastojanjebenzinske");
+    const dugmePotvrdi = document.getElementById("potvrdi");
+    const rezultatAside = formaPretraga.querySelector("aside");
+
+    const pumpe = [
+      {
+        grad: "Tuzla",
+        naziv: "Bingo Petrol",
+        udaljenost: 3,
+        goriva: {
+          Dizel: 2.46,
+          "Super 95": 2.51,
+          "Super 98": 2.66,
+          "LPG/Plin": 1.21,
+          "Lož Ulje": 2.18,
+        },
+      },
+      {
+        grad: "Tuzla",
+        naziv: "Hifa Petrol",
+        udaljenost: 5,
+        goriva: {
+          Dizel: 2.52,
+          "Super 95": 2.57,
+          "Super 98": 2.72,
+          "LPG/Plin": 1.25,
+          "Lož Ulje": 2.23,
+        },
+      },
+      {
+        grad: "Lukavac",
+        naziv: "Gazprom",
+        udaljenost: 12,
+        goriva: {
+          Dizel: 2.48,
+          "Super 95": 2.55,
+          "Super 98": 2.7,
+          "LPG/Plin": 1.24,
+          "Lož Ulje": 2.2,
+        },
+      },
+      {
+        grad: "Kalesija",
+        naziv: "Polo",
+        udaljenost: 18,
+        goriva: {
+          Dizel: 2.44,
+          "Super 95": 2.5,
+          "Super 98": 2.68,
+          "LPG/Plin": 1.19,
+          "Lož Ulje": 2.16,
+        },
+      },
+      {
+        grad: "Živinice",
+        naziv: "Junuzović-Kopex",
+        udaljenost: 9,
+        goriva: {
+          Dizel: 2.49,
+          "Super 95": 2.53,
+          "Super 98": 2.69,
+          "LPG/Plin": 1.22,
+          "Lož Ulje": 2.19,
+        },
+      },
+    ];
+
+    function postaviTekst(id, tekst) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.textContent = tekst;
+      }
+    }
+
+    function popuniTabeluGoriva() {
+      const goriva = [
+        { naziv: "Dizel", id: "dizel" },
+        { naziv: "Super 95", id: "super95" },
+        { naziv: "Super 98", id: "super98" },
+        { naziv: "LPG/Plin", id: "lpg" },
+        { naziv: "Lož Ulje", id: "lozulje" },
+      ];
+
+      goriva.forEach(function (gorivo) {
+        let najjeftinija = pumpe[0];
+
+        pumpe.forEach(function (pumpa) {
+          if (pumpa.goriva[gorivo.naziv] < najjeftinija.goriva[gorivo.naziv]) {
+            najjeftinija = pumpa;
+          }
+        });
+
+        postaviTekst(
+          `cijena-${gorivo.id}`,
+          formatirajCijenu(najjeftinija.goriva[gorivo.naziv]),
+        );
+        postaviTekst(`promjena-${gorivo.id}`, "Stabilno");
+        postaviTekst(
+          `najjeftinija-${gorivo.id}`,
+          formatirajCijenu(najjeftinija.goriva[gorivo.naziv]),
+        );
+        postaviTekst(`grad-${gorivo.id}`, najjeftinija.grad);
+        postaviTekst(`pumpa-${gorivo.id}`, najjeftinija.naziv);
+      });
+    }
+    function prikaziRezultat(poruka, tip) {
+      if (!rezultatAside) return;
+
+      const boja = tip === "greska" ? "#ff6b6b" : "#2ecc71";
+
+      rezultatAside.innerHTML = `
+      <div style="
+        margin-top: 20px;
+        padding: 16px;
+        border: 1px solid ${boja};
+        border-radius: 8px;
+        color: ${boja};
+        background: rgba(255,255,255,0.05);
+        line-height: 1.6;
+      ">
+        ${poruka}
+      </div>
+    `;
+    }
+
+    function formatirajCijenu(cijena) {
+      return cijena.toFixed(2).replace(".", ",") + " KM";
+    }
+
+    popuniTabeluGoriva();
+
+    if (dugmePotvrdi) {
+      dugmePotvrdi.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const lokacija = lokacijaInput.value.trim().toLowerCase();
+        const gorivo = gorivoSelect.value;
+        const rastojanje = parseFloat(rastojanjeInput.value);
+
+        if (!lokacija) {
+          prikaziRezultat("Unesite lokaciju.", "greska");
+          return;
+        }
+
+        if (!gorivo || gorivo === "prazno") {
+          prikaziRezultat("Odaberite vrstu goriva.", "greska");
+          return;
+        }
+
+        if (isNaN(rastojanje) || rastojanje <= 0) {
+          prikaziRezultat(
+            "Unesite ispravno rastojanje u kilometrima.",
+            "greska",
+          );
+          return;
+        }
+
+        const rezultati = pumpe.filter(function (pumpa) {
+          return (
+            pumpa.grad.toLowerCase().includes(lokacija) &&
+            pumpa.udaljenost <= rastojanje &&
+            pumpa.goriva[gorivo] !== undefined
+          );
+        });
+
+        if (rezultati.length === 0) {
+          prikaziRezultat(
+            "Nema pronađene benzinske pumpe za unesene podatke.",
+            "greska",
+          );
+          return;
+        }
+
+        let najjeftinija = rezultati[0];
+
+        rezultati.forEach(function (pumpa) {
+          if (pumpa.goriva[gorivo] < najjeftinija.goriva[gorivo]) {
+            najjeftinija = pumpa;
+          }
+        });
+
+        prikaziRezultat(
+          `
+        <strong>Najjeftinija benzinska:</strong> ${najjeftinija.naziv}<br>
+        <strong>Grad:</strong> ${najjeftinija.grad}<br>
+        <strong>Gorivo:</strong> ${gorivo}<br>
+        <strong>Cijena:</strong> ${formatirajCijenu(najjeftinija.goriva[gorivo])}<br>
+        <strong>Udaljenost:</strong> ${najjeftinija.udaljenost} km
+        `,
+          "uspjeh",
+        );
+      });
+    }
+  }
 });
