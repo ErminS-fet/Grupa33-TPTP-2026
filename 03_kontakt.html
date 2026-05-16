@@ -74,7 +74,7 @@
     <main>
                     <!-- Kontakt forma -->
       <h1>Kontakt</h1>
-      <form>
+      <form id="form">
         <label for="fname">Ime</label><br>
         <input type="text" id="fname" name="fname" placeholder="Vaše ime..."><br>
         <label for="lname">Prezime</label><br>
@@ -84,7 +84,7 @@
         <label for="phone">Broj telefona</label><br>
         <input type="text" id="phone" name="phone" placeholder="012/345/678..."><br>
         <label for="temaupita">Tema upita</label><br>
-        <select>
+        <select id="temaupita">
           <option name="temaupita" value="greska">Grešku koju ste primjetili</option>
           <option name="temaupita" value="ostranici">Pitanje vezano za stranicu</option>
           <option name="temaupita" value="oprojektu">Pitanje o našem projektu</option>
@@ -93,7 +93,7 @@
         <label for="textarea">Vaša poruka</label><br>
         <textarea name="textarea" rows="10" colums="30" placeholder="Vaša poruka...">
         </textarea><br><br>
-        <input type="submit" value="Podesite"><input type="button" value="Izbrišite">
+        <input type="submit" id ="podesi" value="Podesite"><input type="button" id="izbrisi" value="Izbrišite">
       </form>
                       <!-- Kontakt forma -->
     </main>
