@@ -12,26 +12,24 @@ NAPOMENA O KORIŠTENJU AI-a:
    kako classList.toggle radi i zašto koristimo localStorage.
  ============================================================ */
 
- (function inicijalizujMod() {
+(function inicijalizujMod() {
   const sacuvaniMod = localStorage.getItem("pumpabon-mod");
- 
+
   if (sacuvaniMod === "light") {
     document.body.classList.add("light-mode");
   }
 })();
- 
+
 document.addEventListener("DOMContentLoaded", function () {
- 
   const dugmeMod = document.getElementById("dugme-mod");
- 
+
   if (dugmeMod) {
     // Postavi tekst dugmeta prema trenutnom modu pri učitavanju
     osvjeziTekstDugmeta(dugmeMod);
- 
+
     dugmeMod.addEventListener("click", function () {
-    
       document.body.classList.toggle("light-mode");
- 
+
       // Zapamti trenutni mod u localStorage
       // AI mi je pokazao ovaj pattern: provjera classList → setItem
       if (document.body.classList.contains("light-mode")) {
@@ -39,11 +37,11 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         localStorage.setItem("pumpabon-mod", "dark");
       }
- 
+
       osvjeziTekstDugmeta(dugmeMod);
     });
   }
- 
+
   /* pomocna funkcija */
   function osvjeziTekstDugmeta(dugme) {
     if (document.body.classList.contains("light-mode")) {
@@ -53,4 +51,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  /* ============================================================
+     2. SKOČI NA VRH
+     ============================================================
+*/
+  const dugmeVrh = document.getElementById("dugme-vrh");
+
+  if (dugmeVrh) {
+    dugmeVrh.addEventListener("click", function () {
+      document.getElementById("vrh").scrollIntoView({
+        behavior: "smooth",
+      });
+    });
+  }
 });
