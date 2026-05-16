@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="bs">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PumpaBon - Glavna Stranica</title>
+    <title>PumpaBon - Pronađite Benzinsku</title>
     <link href="https://fonts.googleapis.com/css2?family=Revalia&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="04_css/tptpstil.css">
 </head>
@@ -74,25 +73,369 @@
     </header>
     <section>
                     <!-- Tabela sa gorivom -->
+        <h1>Goriva</h1>
+        <table>
+            <tr>
+                <th>
+                    Goriva
+                </th>
+                <th>
+                    <div class="">
+                        <img src="" alt="Dizel">
+                    </div>
+                </th>
+                <th>
+                    <div>
+                        <img src="" alt="Super 95">
+                    </div>
+                </th>
+                <th>
+                    <div>
+                        <img src="" alt="Super 98">
+                    </div>
+                </th>
+                <th>
+                    <div>
+                        <img src="" alt="LPG/Plin">
+                    </div>
+                </th>
+                <th>
+                    <div>
+                        <img src="" alt="Lož Ulje">
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    Cijena
+                </td>
+                <td>
+                    <div class="">
+                        0,00KM
+                    </div>
+                </td>
+                <td>
+                    <div class="">
+                        0,00KM
+                    </div>
+                </td>
+                <td>
+                    <div class="">
+                        0,00KM
+                    </div>
+                </td>
+                <td>
+                    <div class="">
+                        0,00KM
+                    </div>
+                </td>
+                <td>
+                    <div class="">
+                        0,00KM
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Promjena
+                </td>
+                <td>
+                    <div class="">
+                        0,00KM
+                    </div>
+                </td>
+                <td>
+                    <div class="">
+                        0,00KM
+                    </div>
+                </td>
+                <td>
+                    <div class="">
+                        0,00KM
+                    </div>
+                </td>
+                <td>
+                    <div class="">
+                        0,00KM
+                    </div>
+                </td>
+                <td>
+                    <div class="">
+                        0,00KM
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Najjeftinija cijena
+                </td>
+                <td>
+                    <div class="">
+                        0,00KM
+                    </div>
+                </td>
+                <td>
+                    <div class="">
+                        0,00KM
+                    </div>
+                </td>
+                <td>
+                    <div class="">
+                        0,00KM
+                    </div>
+                </td>
+                <td>
+                    <div class="">
+                        0,00KM
+                    </div>
+                </td>
+                <td>
+                    <div class="">
+                        0,00KM
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Grad</td>
+                <td>
+                    <div class="">
+                        Grad
+                    </div>
+                </td>
+                <td>
+                    <div class="">
+                        Grad
+                    </div>
+                </td>
+                <td>
+                    <div class="">
+                        Grad
+                    </div>
+                </td>
+                <td>
+                    <div class="">
+                        Grad
+                    </div>
+                </td>
+                <td>
+                    <div class="">
+                        Grad
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Benzinska</td>
+                <td>
+                    <div class="">
+                        Benzinska
+                    </div>
+                </td>
+                <td>
+                    <div class="">
+                        Benzinska
+                    </div>
+                </td>
+                <td>
+                    <div class="">
+                        Benzinska
+                    </div>
+                </td>
+                <td>
+                    <div class="">
+                        Benzinska
+                    </div>
+                </td>
+                <td>
+                    <div class="">
+                        Benzinska
+                    </div>
+                </td>
+            </tr>
+        </table>
                     <!-- Tabela sa gorivom -->
     </section>
-    <section>
-                    <!-- Galerija u obliku kartica -->
-                    <!-- Galerija u obliku kartica -->
-    </section>
+    
     <main> 
                     <!-- Interaktivna forma koja proračuna lokaciju benzinske -->
-      <aside>
-        
-      </aside>
+      <form id="pretraga">
+          <label for="lokacija">Unesite lokaciju</label><br>
+          <input type="text" id="lokacija" name="lokacija" placeholder="Tuzla/Kalesija/Lukavac...."><br>
+          <input type="submit" id="trenutnalokacija" value="Precizna lokacija">
+          <label for="vrstagoriva">Koja vrsta goriva?</label><br>
+          <select id="vrstagoriva">
+              <option name="vrstagoriva" value="prazno">
+                  
+              </option>
+              <option name="vrstagoriva" value="Dizel">
+                  Dizel
+              </option>
+              <option name="vrstagoriva" value="Super 95">
+                  Super 95
+              </option>
+              <option name="vrstagoriva" value="Super 98">
+                  Super 98
+              </option>
+              <option name="vrstagoriva" value="LPG/Plin">
+                  LPG/Plin
+              </option>
+              <option name="vrstagoriva" value="Lož Ulje">
+                  Lož Ulje
+              </option>
+          </select>
+          <label for="rastojanjebenzinske">Na koje rastojanje u kilometrima?</label>
+          <input type="text" id="rastojanjebenzinske" name="rastojanjebenzinske" placeholder="5km/20km/30km...."><br><br>
+          <input type="submit" id="potvrdi" value="Potvrdi">
+          <aside>
+              
+          </aside>
+      </form>
                     <!-- Interaktivna forma koja proračuna lokaciju benzinske -->
       
     </main>
 
     <article>
                     <!-- Ugniježdena lista sa gradovima i cijenama -->
+        <h1>Gradovi u TK</h1>
+        <ul class="category">
+            <li class="kategorija">Banovići
+                <dl class="podkategorija">
+                    <dt>Dizel</dt><dd> 0,00KM</dd>
+                    <dt>Super 95</dt><dd> 0,00KM</dd>
+                    <dt>Super 98</dt><dd> 0,00KM</dd>
+                    <dt>LPG/Plin</dt><dd> 0,00KM</dd>
+                    <dt>Lož Ulje</dt><dd> 0,00KM</dd>
+                </dl>
+            </li>
+            <li class="kategorija">Doboj Istok
+                <dl class="podkategorija">
+                    <dt>Dizel</dt><dd> 0,00KM</dd>
+                    <dt>Super 95</dt><dd> 0,00KM</dd>
+                    <dt>Super 98</dt><dd> 0,00KM</dd>
+                    <dt>LPG/Plin</dt><dd> 0,00KM</dd>
+                    <dt>Lož Ulje</dt><dd> 0,00KM</dd>
+                </dl>
+            </li>
+            <li class="kategorija">Gradačac
+                <dl class="podkategorija">
+                    <dt>Dizel</dt><dd> 0,00KM</dd>
+                    <dt>Super 95</dt><dd> 0,00KM</dd>
+                    <dt>Super 98</dt><dd> 0,00KM</dd>
+                    <dt>LPG/Plin</dt><dd> 0,00KM</dd>
+                    <dt>Lož Ulje</dt><dd> 0,00KM</dd>
+                </dl>
+            </li>
+            <li class="kategorija">Gračanica
+                <dl class="podkategorija">
+                    <dt>Dizel</dt><dd> 0,00KM</dd>
+                    <dt>Super 95</dt><dd> 0,00KM</dd>
+                    <dt>Super 98</dt><dd> 0,00KM</dd>
+                    <dt>LPG/Plin</dt><dd> 0,00KM</dd>
+                    <dt>Lož Ulje</dt><dd> 0,00KM</dd>
+                </dl>
+            </li>
+            <li class="kategorija">Kalesija
+                <dl class="podkategorija">
+                    <dt>Dizel</dt><dd>0,00KM</dd>
+                    <dt>Super 95</dt><dd> 0,00KM</dd>
+                    <dt>Super 98</dt><dd> 0,00KM</dd>
+                    <dt>LPG/Plin</dt><dd> 0,00KM</dd>
+                    <dt>Lož Ulje</dt><dd> 0,00KM</dd>
+                </dl>
+            </li>
+            <li class="kategorija">Kladanj
+                <dl class="podkategorija">
+                    <dt>Dizel</dt><dd>0,00KM</dd>
+                    <dt>Super 95</dt><dd> 0,00KM</dd>
+                    <dt>Super 98</dt><dd> 0,00KM</dd>
+                    <dt>LPG/Plin</dt><dd> 0,00KM</dd>
+                    <dt>Lož Ulje</dt><dd> 0,00KM</dd>
+                </dl>
+            </li>
+            <li class="kategorija">Lukavac
+                <dl class="podkategorija">
+                    <dt>Dizel</dt><dd>0,00KM</dd>
+                    <dt>Super 95</dt><dd> 0,00KM</dd>
+                    <dt>Super 98</dt><dd> 0,00KM</dd>
+                    <dt>LPG/Plin</dt><dd> 0,00KM</dd>
+                    <dt>Lož Ulje</dt><dd> 0,00KM</dd>
+                </dl>
+            </li>
+            <li class="kategorija">Sapna
+                <dl class="podkategorija">
+                    <dt>Dizel</dt><dd>0,00KM</dd>
+                    <dt>Super 95</dt><dd> 0,00KM</dd>
+                    <dt>Super 98</dt><dd> 0,00KM</dd>
+                    <dt>LPG/Plin</dt><dd> 0,00KM</dd>
+                    <dt>Lož Ulje</dt><dd> 0,00KM</dd>
+                </dl>
+            </li>
+            <li class="kategorija">Srebrenik
+                <dl class="podkategorija">
+                    <dt>Dizel</dt><dd>0,00KM</dd>
+                    <dt>Super 95</dt><dd> 0,00KM</dd>
+                    <dt>Super 98</dt><dd> 0,00KM</dd>
+                    <dt>LPG/Plin</dt><dd> 0,00KM</dd>
+                    <dt>Lož Ulje</dt><dd> 0,00KM</dd>
+                </dl>
+            </li>
+            <li class="kategorija">Teočak
+                <dl class="podkategorija">
+                    <dt>Dizel</dt><dd>0,00KM</dd>
+                    <dt>Super 95</dt><dd> 0,00KM</dd>
+                    <dt>Super 98</dt><dd> 0,00KM</dd>
+                    <dt>LPG/Plin</dt><dd> 0,00KM</dd>
+                    <dt>Lož Ulje</dt><dd> 0,00KM</dd>
+                </dl>
+            </li>
+            <li class="kategorija">Gradačac
+                <dl class="podkategorija">
+                    <dt>Dizel</dt><dd>0,00KM</dd>
+                    <dt>Super 95</dt><dd> 0,00KM</dd>
+                    <dt>Super 98</dt><dd> 0,00KM</dd>
+                    <dt>LPG/Plin</dt><dd> 0,00KM</dd>
+                    <dt>Lož Ulje</dt><dd> 0,00KM</dd>
+                </dl>
+            </li>
+            <li class="kategorija">Tuzla
+                <dl class="podkategorija">
+                    <dt>Dizel</dt><dd>0,00KM</dd>
+                    <dt>Super 95</dt><dd> 0,00KM</dd>
+                    <dt>Super 98</dt><dd> 0,00KM</dd>
+                    <dt>LPG/Plin</dt><dd> 0,00KM</dd>
+                    <dt>Lož Ulje</dt><dd> 0,00KM</dd>
+                </dl>
+            </li>
+            <li class="kategorija">Čelić
+                <dl class="podkategorija">
+                    <dt>Dizel</dt><dd>0,00KM</dd>
+                    <dt>Super 95</dt><dd> 0,00KM</dd>
+                    <dt>Super 98</dt><dd> 0,00KM</dd>
+                    <dt>LPG/Plin</dt><dd> 0,00KM</dd>
+                    <dt>Lož Ulje</dt><dd> 0,00KM</dd>
+                </dl>
+            </li>
+            <li class="kategorija">Živinice
+                <dl class="podkategorija">
+                    <dt>Dizel</dt><dd>0,00KM</dd>
+                    <dt>Super 95</dt><dd> 0,00KM</dd>
+                    <dt>Super 98</dt><dd> 0,00KM</dd>
+                    <dt>LPG/Plin</dt><dd> 0,00KM</dd>
+                    <dt>Lož Ulje</dt><dd> 0,00KM</dd>
+                </dl>
+            </li>
+        </ul>
                     <!-- Ugniježdena lista sa gradovima i cijenama -->
     </article>
+    <section>
+                    <!-- Galerija u obliku kartica -->
+        <h1>Galerija svih korištenih slika</h1>
+        <div class="" id="">
+            <section class="">
+                <img src="" alt="">
+            </section>
+        </div>
+                    <!-- Galerija u obliku kartica -->
+    </section>
   
   
     <footer>
