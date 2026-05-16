@@ -248,14 +248,14 @@ document.addEventListener("DOMContentLoaded", function () {
     function prikaziGresku(polje, poruka) {
       if (!polje) return;
 
-      let errorSpan = polje.nextElementSibling;
+      const wrapper = polje.closest(".forma-polje") || polje.parentElement;
+      let errorSpan = wrapper.querySelector(".js-error");
 
-      if (!errorSpan || !errorSpan.classList.contains("js-error")) {
+      if (!errorSpan) {
         errorSpan = document.createElement("span");
         errorSpan.classList.add("js-error");
         errorSpan.setAttribute("role", "alert");
 
-        // Stilizujem inline jer je ovo specifično za ovu funkciju, a ne želim da se miješa sa globalnim CSS-om
         errorSpan.style.cssText = `
       display: block;
       color: #ff6b6b;
@@ -265,7 +265,7 @@ document.addEventListener("DOMContentLoaded", function () {
       font-family: var(--font-tijelo);
     `;
 
-        polje.insertAdjacentElement("afterend", errorSpan);
+        wrapper.appendChild(errorSpan);
       }
 
       errorSpan.textContent = poruka;
@@ -276,9 +276,10 @@ document.addEventListener("DOMContentLoaded", function () {
     function obrisiGresku(polje) {
       if (!polje) return;
 
-      const errorSpan = polje.nextElementSibling;
+      const wrapper = polje.closest(".forma-polje") || polje.parentElement;
+      const errorSpan = wrapper.querySelector(".js-error");
 
-      if (errorSpan && errorSpan.classList.contains("js-error")) {
+      if (errorSpan) {
         errorSpan.textContent = "";
       }
 
@@ -354,7 +355,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return "";
     }
 
-       /* -- Live validacija (validates on blur = kad korisnik napusti polje)
+    /* -- Live validacija (validates on blur = kad korisnik napusti polje)
        AI mi je preporučio blur event umjesto input event da ne nervira
        korisnika dok još kuca */
     function dodajLiveValidaciju(polje, validatorFn) {
