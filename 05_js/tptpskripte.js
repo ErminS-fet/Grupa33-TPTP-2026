@@ -174,4 +174,355 @@ document.addEventListener("DOMContentLoaded", function () {
     // inicijalna postava karusela pri učitavanju stranice
     pomakniKarusel();
   }
+
+  /* ============================================================
+   4. VALIDACIJA KONTAKT FORME (03_kontakt.html)
+   - prikaz grešaka ispod polja i live validacija dok korisnik unosi podatke
+   - brojač znakova za textarea koji mijenja boju kada je ispunjen minimum
+   - nakon uspješnog slanja, prikaz poruke i onemogućavanje forme
+   AI mi je pomogao napisati regex za email validaciju i
+   objasnio mi šta svaki dio regex-a znači, kao i regex za telefon.
+   ============================================================ */
+
+  const forma = document.getElementById("form");
+
+  if (forma) {
+    const poljeIme = document.getElementById("fname");
+    const poljePrezime = document.getElementById("lname");
+    const poljeEmail = document.getElementById("mail");
+    const poljeTelefon = document.getElementById("phone");
+    const poljeSelect = document.getElementById("temaupita");
+    const poljeTextarea = document.querySelector("textarea");
+    const dugmePosalji = document.getElementById("podesi");
+    const dugmeIzbrisi = document.getElementById("izbrisi");
+
+    /* -- Regex za email validaciju
+       AI mi je objasnio ovaj regex dio po dio:
+       ^         = počni na početku stringa
+       [^\s@]+   = jedan ili više znakova koji NISU razmak ili @
+       @         = obavezni @ znak
+       [^\s@]+   = domen dio (npr. gmail)
+       \.        = tačka (escapovana jer je . poseban znak u regex-u)
+       [^\s@]+   = sufiks domene (npr. com, ba, org)
+       $         = kraj stringa
+    ---------------------------------------------------------- */
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    /* -- Regex za telefon
+       Dozvoljava: cifre, razmake, +, -, /
+       Primjeri: 061-123-456, +387 61 123 456, 061/123/456 */
+    const telefonRegex = /^[0-9\s+\-/]{7,20}$/;
+    const MIN_ZNAKOVA = 10;
+
+    let brojacEl = document.getElementById("textarea-brojac");
+
+    if (poljeTextarea && !brojacEl) {
+      brojacEl = document.createElement("small");
+      brojacEl.id = "textarea-brojac";
+      brojacEl.style.cssText = `
+      display: block;
+      margin-top: 4px;
+      font-size: 0.76rem;
+      transition: color 0.3s ease;
+    `;
+      poljeTextarea.parentElement.insertBefore(
+        brojacEl,
+        poljeTextarea.nextSibling,
+      );
+    }
+
+    function osvjeziTekstBrojac(duzina) {
+      if (!brojacEl) return;
+
+      brojacEl.textContent = `${duzina} / ${MIN_ZNAKOVA} znakova minimalno`;
+      brojacEl.style.color = duzina >= MIN_ZNAKOVA ? "#2ecc71" : "#aaaaaa";
+    }
+
+    if (poljeTextarea) {
+      osvjeziTekstBrojac(poljeTextarea.value.trim().length);
+
+      poljeTextarea.addEventListener("input", function () {
+        osvjeziTekstBrojac(this.value.trim().length);
+      });
+    }
+
+    function prikaziGresku(polje, poruka) {
+      if (!polje) return;
+
+      let errorSpan = polje.nextElementSibling;
+
+      if (!errorSpan || !errorSpan.classList.contains("js-error")) {
+        errorSpan = document.createElement("span");
+        errorSpan.classList.add("js-error");
+        errorSpan.setAttribute("role", "alert");
+
+        // Stilizujem inline jer je ovo specifično za ovu funkciju, a ne želim da se miješa sa globalnim CSS-om
+        errorSpan.style.cssText = `
+      display: block;
+      color: #ff6b6b;
+      font-size: 0.78rem;
+      margin-top: 4px;
+      margin-bottom: 10px;
+      font-family: var(--font-tijelo);
+    `;
+
+        polje.insertAdjacentElement("afterend", errorSpan);
+      }
+
+      errorSpan.textContent = poruka;
+      polje.style.borderColor = "#ff6b6b";
+      polje.style.boxShadow = "0 0 0 2px rgba(255,107,107,0.25)";
+    }
+
+    function obrisiGresku(polje) {
+      if (!polje) return;
+
+      const errorSpan = polje.nextElementSibling;
+
+      if (errorSpan && errorSpan.classList.contains("js-error")) {
+        errorSpan.textContent = "";
+      }
+
+      polje.style.borderColor = "";
+      polje.style.boxShadow = "";
+    }
+
+    function validirajIme(vrijednost) {
+      if (!vrijednost || vrijednost.trim().length === 0) {
+        return "Ime je obavezno polje.";
+      }
+
+      if (vrijednost.trim().length < 2) {
+        return "Ime mora imati najmanje 2 znaka.";
+      }
+
+      return "";
+    }
+
+    function validirajPrezime(vrijednost) {
+      if (!vrijednost || vrijednost.trim().length === 0) {
+        return "Prezime je obavezno polje.";
+      }
+
+      if (vrijednost.trim().length < 2) {
+        return "Prezime mora imati najmanje 2 znaka.";
+      }
+
+      return "";
+    }
+
+    function validirajEmail(vrijednost) {
+      if (!vrijednost || vrijednost.trim().length === 0) {
+        return "E-mail adresa je obavezna.";
+      }
+
+      if (!emailRegex.test(vrijednost.trim())) {
+        return "Unesite ispravnu e-mail adresu, npr. ime@domen.com.";
+      }
+
+      return "";
+    }
+
+    function validirajTelefon(vrijednost) {
+      if (!vrijednost || vrijednost.trim().length === 0) {
+        return "Broj telefona je obavezan.";
+      }
+
+      if (!telefonRegex.test(vrijednost.trim())) {
+        return "Unesite ispravan broj telefona, npr. 061-123-456.";
+      }
+
+      return "";
+    }
+
+    function validirajSelect(vrijednost) {
+      if (!vrijednost || vrijednost.trim().length === 0) {
+        return "Molimo odaberite temu upita.";
+      }
+
+      return "";
+    }
+
+    function validirajPoruku(vrijednost) {
+      if (!vrijednost || vrijednost.trim().length === 0) {
+        return "Poruka je obavezna.";
+      }
+
+      if (vrijednost.trim().length < MIN_ZNAKOVA) {
+        return `Poruka mora imati najmanje ${MIN_ZNAKOVA} znakova.`;
+      }
+
+      return "";
+    }
+
+       /* -- Live validacija (validates on blur = kad korisnik napusti polje)
+       AI mi je preporučio blur event umjesto input event da ne nervira
+       korisnika dok još kuca */
+    function dodajLiveValidaciju(polje, validatorFn) {
+      if (!polje) return;
+
+      polje.addEventListener("blur", function () {
+        const greska = validatorFn(this.value);
+
+        if (greska) {
+          prikaziGresku(this, greska);
+        } else {
+          obrisiGresku(this);
+        }
+      });
+
+      polje.addEventListener("input", function () {
+        const greska = validatorFn(this.value);
+
+        if (!greska) {
+          obrisiGresku(this);
+        }
+      });
+    }
+
+    dodajLiveValidaciju(poljeIme, validirajIme);
+    dodajLiveValidaciju(poljePrezime, validirajPrezime);
+    dodajLiveValidaciju(poljeEmail, validirajEmail);
+    dodajLiveValidaciju(poljeTelefon, validirajTelefon);
+    dodajLiveValidaciju(poljeSelect, validirajSelect);
+    dodajLiveValidaciju(poljeTextarea, validirajPoruku);
+
+    function prikaziUspjesnuPoruku() {
+      forma.style.opacity = "0.4";
+      forma.style.pointerEvents = "none";
+
+      let uspjesnaPoruka = document.getElementById("uspjesna-poruka");
+
+      if (!uspjesnaPoruka) {
+        uspjesnaPoruka = document.createElement("div");
+        uspjesnaPoruka.id = "uspjesna-poruka";
+        uspjesnaPoruka.style.cssText = `
+        margin: 24px 0;
+        padding: 20px 24px;
+        background: rgba(39, 174, 96, 0.15);
+        border: 1px solid rgba(39, 174, 96, 0.5);
+        border-radius: 8px;
+        color: #2ecc71;
+        font-size: 1rem;
+        text-align: center;
+        animation: textFadeIn 0.4s ease;
+      `;
+        forma.parentElement.insertBefore(uspjesnaPoruka, forma);
+      }
+
+      uspjesnaPoruka.style.display = "block";
+      uspjesnaPoruka.innerHTML = `
+      <strong>✅ Poruka uspješno poslana!</strong><br>
+      <small>Javit ćemo vam se na unesenu e-mail adresu u roku od 48 sati.</small>
+    `;
+
+      uspjesnaPoruka.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+
+    if (dugmePosalji) {
+      dugmePosalji.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const greske = [
+          {
+            polje: poljeIme,
+            poruka: validirajIme(poljeIme ? poljeIme.value : ""),
+          },
+          {
+            polje: poljePrezime,
+            poruka: validirajPrezime(poljePrezime ? poljePrezime.value : ""),
+          },
+          {
+            polje: poljeEmail,
+            poruka: validirajEmail(poljeEmail ? poljeEmail.value : ""),
+          },
+          {
+            polje: poljeTelefon,
+            poruka: validirajTelefon(poljeTelefon ? poljeTelefon.value : ""),
+          },
+          {
+            polje: poljeSelect,
+            poruka: validirajSelect(poljeSelect ? poljeSelect.value : ""),
+          },
+          {
+            polje: poljeTextarea,
+            poruka: validirajPoruku(poljeTextarea ? poljeTextarea.value : ""),
+          },
+        ];
+
+        let imaGresaka = false;
+
+        greske.forEach(function (stavka) {
+          if (!stavka.polje) return;
+
+          if (stavka.poruka) {
+            prikaziGresku(stavka.polje, stavka.poruka);
+            imaGresaka = true;
+          } else {
+            obrisiGresku(stavka.polje);
+          }
+        });
+        if (imaGresaka) {
+          const sveGreske = forma.querySelectorAll(".js-error");
+
+          const prvaGreska = Array.from(sveGreske).find(
+            (greska) => greska.textContent.trim() !== "",
+          );
+
+          if (prvaGreska) {
+            const pozicija =
+              prvaGreska.getBoundingClientRect().top + window.scrollY - 120;
+
+            window.scrollTo({
+              top: pozicija,
+              behavior: "smooth",
+            });
+          }
+
+          return;
+        }
+
+        prikaziUspjesnuPoruku();
+      });
+    }
+
+    if (dugmeIzbrisi) {
+      dugmeIzbrisi.addEventListener("click", function () {
+        if (poljeIme) {
+          poljeIme.value = "";
+          obrisiGresku(poljeIme);
+        }
+        if (poljePrezime) {
+          poljePrezime.value = "";
+          obrisiGresku(poljePrezime);
+        }
+        if (poljeEmail) {
+          poljeEmail.value = "";
+          obrisiGresku(poljeEmail);
+        }
+        if (poljeTelefon) {
+          poljeTelefon.value = "";
+          obrisiGresku(poljeTelefon);
+        }
+        if (poljeSelect) {
+          poljeSelect.value = "";
+          obrisiGresku(poljeSelect);
+        }
+
+        if (poljeTextarea) {
+          poljeTextarea.value = "";
+          obrisiGresku(poljeTextarea);
+          osvjeziTekstBrojac(0);
+        }
+
+        const uspjesnaPoruka = document.getElementById("uspjesna-poruka");
+
+        if (uspjesnaPoruka) {
+          uspjesnaPoruka.style.display = "none";
+        }
+
+        forma.style.opacity = "1";
+        forma.style.pointerEvents = "auto";
+      });
+    }
+  }
 });
