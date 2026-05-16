@@ -538,6 +538,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const rastojanjeInput = document.getElementById("rastojanjebenzinske");
     const dugmePotvrdi = document.getElementById("potvrdi");
     const rezultatAside = formaPretraga.querySelector("aside");
+    const dugmeTrenutnaLokacija = document.getElementById("trenutnalokacija");
 
     const pumpe = [
       {
@@ -658,6 +659,17 @@ document.addEventListener("DOMContentLoaded", function () {
         ${poruka}
       </div>
     `;
+    }
+
+    if (dugmeTrenutnaLokacija) {
+      dugmeTrenutnaLokacija.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        prikaziRezultat(
+          "Precizna GPS lokacija trenutno nije dostupna u demo verziji projekta. Unesite ručno grad, npr. Tuzla, Lukavac, Kalesija ili Živinice.",
+          "greska",
+        );
+      });
     }
 
     function formatirajCijenu(cijena) {
