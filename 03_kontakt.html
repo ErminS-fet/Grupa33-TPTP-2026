@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PumpaBon - Glavna Stranica</title>
+    <title>PumpaBon - Kontakt</title>
     <link href="https://fonts.googleapis.com/css2?family=Revalia&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="04_css/tptpstil.css">
 </head>
@@ -71,54 +71,274 @@
         </div>
                     <!-- Glavna linkovi za sve cetiri stranice -->
     </header>
-    <main>
+    <main class="kontakt-main" id="kontakt-vrh">
                     <!-- Kontakt forma -->
-      <h1>Kontakt</h1>
-      <form id="form">
-        <label for="fname">Ime</label><br>
-        <input type="text" id="fname" name="fname" placeholder="Vaše ime..."><br>
-        <label for="lname">Prezime</label><br>
-        <input type="text" id="lname" name="lname" placeholder="Vaše prezime..."><br>
-        <label for="mail">E-mail adresa</label><br>
-        <input type="text" id="mail" name="mail" placeholder="mail@adresa.com..."><br>
-        <label for="phone">Broj telefona</label><br>
-        <input type="text" id="phone" name="phone" placeholder="012/345/678..."><br>
-        <label for="temaupita">Tema upita</label><br>
-       <select id="temaupita">
-        <option value="">Odaberite temu upita</option>
-        <option value="greska">Grešku koju ste primijetili</option>
-        <option value="ostranici">Pitanje vezano za stranicu</option>
-        <option value="oprojektu">Pitanje o našem projektu</option>
-        <option value="ostalo">Ostalo</option>
-        </select>
-        <label for="textarea">Vaša poruka</label><br>
-        <textarea id="textarea" name="textarea" rows="10" cols="30" placeholder="Vaša poruka..."></textarea><br><br>
-        <input type="submit" id ="podesi" value="Podesite"><input type="button" id="izbrisi" value="Izbrišite">
-      </form>
+        <div class="kontakt-wrapper">
+            <div class="kontakt-intro">
+                <h1 class="stranica-naslov">Kontakt</h1>
+                <p class="kontakt-opis">
+                    Imate pitanje, prijedlog ili ste pronašli grešku na stranici?
+                    Pišite nam - odgovaramo u roku od 24 sata.
+                </p>
+                <div class="kontakt-info-blok">
+                    <div class="kontakt-info-stavka">
+                        <span class="kontakt-ikona">📍</span>
+                        <div>
+                            <strong>Lokacija</strong>
+                            <span>Fakultet elektrotehnike, Tuzla</span>
+                        </div>
+                    </div>
+                    <div class="kontakt-info-stavka">
+                        <span class="kontakt-ikona">🎓</span>
+                        <div>
+                            <strong>Predmet</strong>
+                            <span>TPTP 2025/2026</span>
+                        </div>
+                    </div>
+                    <div class="kontakt-info-stavka">
+                        <span class="kontakt-ikona">👩‍🏫</span>
+                        <div>
+                            <strong>Mentor</strong>
+                            <span>vanr. prof. dr. Samra Mujačić</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desna strana: forma sa labelama lijevo, inputima desno (kao na slici) -->
+            <div class="kontakt-forma-wrapper">
+                <form id="form">
+
+                    <div class="forma-red">
+                        <label for="fname">Ime</label>
+                        <div class="forma-polje">
+                            <input type="text" id="fname" name="fname" placeholder="Vaše ime...">
+                            <span class="forma-hint">Ime osobe koja šalje upit</span>
+                        </div>
+                    </div>
+
+                    <div class="forma-red">
+                        <label for="lname">Prezime</label>
+                        <div class="forma-polje">
+                            <input type="text" id="lname" name="lname" placeholder="Vaše prezime...">
+                            <span class="forma-hint">Prezime osobe koja šalje upit</span>
+                        </div>
+                    </div>
+
+                    <div class="forma-red">
+                        <label for="mail">E-mail adresa</label>
+                        <div class="forma-polje">
+                            <input type="text" id="mail" name="mail" placeholder="mail@adresa.com...">
+                            <span class="forma-hint">E-mail na koji ćemo vam odgovoriti</span>
+                        </div>
+                    </div>
+
+                    <div class="forma-red">
+                        <label for="phone">Broj telefona</label>
+                        <div class="forma-polje">
+                            <input type="text" id="phone" name="phone" placeholder="061/234/567...">
+                            <span class="forma-hint">Opcionalno — samo cifre, razmaci ili crtice</span>
+                        </div>
+                    </div>
+
+                    <div class="forma-red">
+                        <label for="temaupita">Tema upita</label>
+                        <div class="forma-polje">
+                            <select id="temaupita" name="temaupita">
+                                <option></option>
+                                <option value="greska">Grešku koju ste primjetili</option>
+                                <option value="ostranici">Pitanje vezano za stranicu</option>
+                                <option value="oprojektu">Pitanje o našem projektu</option>
+                                <option value="ostalo">Ostalo</option>
+                            </select>
+                            <span class="forma-hint">Odaberite temu koja odgovara vašem upitu</span>
+                        </div>
+                    </div>
+
+                    <div class="forma-red forma-red-textarea">
+                        <label for="textarea">Vaša poruka</label>
+                        <div class="forma-polje">
+                            <textarea id="textarea" name="textarea" rows="6" placeholder="Napišite vašu poruku ovdje..."></textarea>
+                            <span class="forma-hint">Opišite vaš upit što detaljnije</span>
+                        </div>
+                    </div>
+
+                    <div class="forma-red forma-red-dugmad">
+                        <span></span>
+                        <div class="forma-dugmad">
+                            <input type="submit" id="podesi" value="Pošaljite poruku">
+                            <input type="button" id="izbrisi" value="Poništite">
+                        </div>
+                    </div>
+
+                    <div class="forma-red">
+                        <span></span>
+                        <div class="uspjesna-poruka" id="uspjesna-poruka"></div>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
                       <!-- Kontakt forma -->
     </main>
 
-    <section>
                       <!-- Sekcija o našoj stranici  -->
-      <h1>O stranici</h1>
-      <p>Stranica je namjeljena da prati cijenu goriva na različitim benzinskim pumpama širom Tuzlanskog Kantona i sastoji se od tri glavne stranice.</p>
-      <img src="" alt="Glavna Stranica">
-      <p>Naša glavna stranica sadrži linkove koje su relevantne za gorivo, kao i opšte informacije o benzinskim pumpama koje se nalaze u Tuzlanskom Kantonu</p>
-      <img src="" alt="Pronađite Benzinsku">
-      <p>Ovdje se nalazi najbitnija funkcija našeg projekta, to jeste pronalaženje najbliže benzinske pumpe sa jeftinim cijenama vašeg traženog goriva kao i tabela koja prati cijene goriva.</p>
-      <img src="" alt="Kontakt Stranica">
-      <p>Stranicu na koju se trenutno nalazite služi za kontaktiranje nas u slučaju da imate neko pitanje o stranici, ako ste pronašli grešku, i slićno.</p>
-                      <!-- Sekcija o našoj stranici  -->
-    </section>
+<section class="kontakt-sekcija" id="o-stranici">
 
-    <article>
+        <div class="sekcija-zaglavlje">
+            <h2 class="stranica-naslov">O stranici</h2>
+            <p class="sekcija-uvod">
+                PumpaBon je web aplikacija namijenjena praćenju cijena goriva i
+                lociranju benzinskih pumpi širom Tuzlanskog Kantona.
+            </p>
+        </div>
+
+        <div class="stranice-kartice">
+
+            <div class="stranica-kartica">
+                <div class="kartica-ikona-wrapper">
+                    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" class="kartica-svg">
+                        <rect x="10" y="30" width="60" height="40" rx="4" fill="none" stroke="#e8a020" stroke-width="2.5"/>
+                        <polygon points="5,32 40,8 75,32" fill="none" stroke="#e8a020" stroke-width="2.5" stroke-linejoin="round"/>
+                        <rect x="28" y="48" width="14" height="22" rx="2" fill="#e8a020" opacity="0.5"/>
+                        <rect x="48" y="40" width="14" height="10" rx="2" fill="none" stroke="#e8a020" stroke-width="1.5"/>
+                    </svg>
+                </div>
+                <h3>Glavna Stranica</h3>
+                <p>
+                    Karusel sa svim benzinskim pumpama kantona, linkovi relevantni za
+                    gorivo i interaktivna mapa sa lokacijama svih 137 pumpi u TK.
+                </p>
+                <a href="01_index.html" class="kartica-link">Pogledaj →</a>
+            </div>
+
+            <div class="stranica-kartica stranica-kartica-istaknuta">
+                <div class="kartica-ikona-wrapper">
+                    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" class="kartica-svg">
+                        <circle cx="34" cy="34" r="20" fill="none" stroke="#e8a020" stroke-width="2.5"/>
+                        <line x1="48" y1="48" x2="68" y2="68" stroke="#e8a020" stroke-width="3" stroke-linecap="round"/>
+                        <line x1="34" y1="24" x2="34" y2="44" stroke="#e8a020" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+                        <line x1="24" y1="34" x2="44" y2="34" stroke="#e8a020" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+                    </svg>
+                </div>
+                <h3>Pronađite Benzinsku</h3>
+                <p>
+                    Pronađite najbližu benzinsku pumpu s najpovoljnijim gorivom.
+                    Tabela cijena po brendovima i filtriranje prema vrsti goriva.
+                </p>
+                <a href="02_sadrzaj.html" class="kartica-link">Pogledaj →</a>
+            </div>
+
+            <div class="stranica-kartica">
+                <div class="kartica-ikona-wrapper">
+                    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" class="kartica-svg">
+                        <rect x="8" y="20" width="64" height="44" rx="5" fill="none" stroke="#e8a020" stroke-width="2.5"/>
+                        <polyline points="8,20 40,48 72,20" fill="none" stroke="#e8a020" stroke-width="2.5" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3>Kontakt Stranica</h3>
+                <p>
+                    Stranica za kontaktiranje tima - prijavite grešku, postavite
+                    pitanje o projektu ili jednostavno stupite u kontakt s nama.
+                </p>
+                <a href="#kontakt-vrh" class="kartica-link">Pogledaj →</a>
+            </div>
+
+        </div>
+    </section>
+                      <!-- Sekcija o našoj stranici  -->
+
                       <!-- Article o našem projektu -->
-      <h1>O nama</h1>
-      <p>Mi smo studenti prve godine na Fakultetu elektrotehnike u Tuzli 2025/2026. Ova stranica je napravljena kao završni projekat iz predmeta Tehnologije za Podršku Tehničkom Pisanju sa prof. dr. Samra Mujačić kao mentorom.</p>
-      <aside>
-        <img src="" alt="">
-      </aside>
-      <p>HTML kod i strukturu stranice je radio Ermin Subašić, CSS kod i dizajn stranice je radio Erol Vikalo i JavaScript kod i logiku stranice je radio Erol Mešanović.</p>
+      <article class="kontakt-article" id="o-nama">
+
+        <h2 class="stranica-naslov">O nama</h2>
+
+        <div class="onas-wrapper">
+
+            <div class="onas-tekst">
+                <p class="onas-uvod">
+                    Mi smo studenti prve godine na Fakultetu elektrotehnike u Tuzli,
+                    akademska godina 2025/2026. Ova stranica je naš završni projekat
+                    iz predmeta <strong>Tehnologije za Podršku Tehničkom Pisanju</strong>
+                    pod mentorstvom <strong>vanr. prof. dr. Samra Mujačić</strong>.
+                </p>
+
+                <div class="tim-kartice">
+
+                    <div class="tim-clan">
+                        <div class="clan-avatar">
+                            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="30" cy="22" r="12" fill="rgba(232,160,32,0.1)" stroke="#e8a020" stroke-width="2"/>
+                                <path d="M8 56 Q8 40 30 40 Q52 40 52 56" fill="rgba(232,160,32,0.1)" stroke="#e8a020" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="clan-info">
+                            <strong>Ermin Subašić</strong>
+                            <span class="clan-uloga">HTML &amp; Struktura</span>
+                            <p>Sve tri HTML datoteke, semantička struktura, slike, galerija, tabela i kartice.</p>
+                        </div>
+                    </div>
+
+                    <div class="tim-clan">
+                        <div class="clan-avatar">
+                            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="30" cy="22" r="12" fill="rgba(232,160,32,0.1)" stroke="#e8a020" stroke-width="2"/>
+                                <path d="M8 56 Q8 40 30 40 Q52 40 52 56" fill="rgba(232,160,32,0.1)" stroke="#e8a020" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="clan-info">
+                            <strong>Erol Vikalo</strong>
+                            <span class="clan-uloga">CSS &amp; Dizajn</span>
+                            <p>Kompletan tptpstil.css - varijable, Flexbox, Grid, media queries, animacije i tamni mod.</p>
+                        </div>
+                    </div>
+
+                    <div class="tim-clan">
+                        <div class="clan-avatar">
+                            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="30" cy="22" r="12" fill="rgba(232,160,32,0.1)" stroke="#e8a020" stroke-width="2"/>
+                                <path d="M8 56 Q8 40 30 40 Q52 40 52 56" fill="rgba(232,160,32,0.1)" stroke="#e8a020" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="clan-info">
+                            <strong>Erol Mešanović</strong>
+                            <span class="clan-uloga">JavaScript &amp; Logika</span>
+                            <p>Kompletan tptpskripte.js - filtriranje, tamni mod, LocalStorage i validacija forme.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Dekorativni SVG panel desno -->
+            <aside class="onas-aside">
+                <div class="onas-panel">
+                    <svg viewBox="0 0 220 310" xmlns="http://www.w3.org/2000/svg" class="onas-svg">
+                        <circle cx="110" cy="105" r="82" fill="rgba(232,160,32,0.04)" stroke="rgba(232,160,32,0.18)" stroke-width="1"/>
+                        <!-- Pumpa tijelo -->
+                        <rect x="72" y="78" width="48" height="66" rx="4" fill="none" stroke="#e8a020" stroke-width="2"/>
+                        <!-- Ekran pumpe -->
+                        <rect x="81" y="87" width="30" height="20" rx="2" fill="rgba(232,160,32,0.12)" stroke="#e8a020" stroke-width="1.5"/>
+                        <!-- Pištolj pumpe -->
+                        <line x1="120" y1="94" x2="142" y2="83" stroke="#e8a020" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="142" y1="83" x2="142" y2="110" stroke="#e8a020" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="142" cy="113" r="4" fill="#e8a020" opacity="0.75"/>
+                        <!-- Osnova pumpe -->
+                        <rect x="65" y="144" width="62" height="8" rx="3" fill="rgba(232,160,32,0.2)" stroke="#e8a020" stroke-width="1"/>
+                        <!-- Stat blokovi -->
+                        <rect x="22" y="170" width="176" height="38" rx="6" fill="rgba(232,160,32,0.07)" stroke="rgba(232,160,32,0.28)" stroke-width="1"/>
+                        <text x="110" y="194" text-anchor="middle" fill="#e8a020" font-size="11.5" font-family="Segoe UI,sans-serif">137 benzinskih pumpi u TK</text>
+                        <rect x="22" y="216" width="176" height="38" rx="6" fill="rgba(232,160,32,0.07)" stroke="rgba(232,160,32,0.28)" stroke-width="1"/>
+                        <text x="110" y="240" text-anchor="middle" fill="#e8a020" font-size="11.5" font-family="Segoe UI,sans-serif">11 brendova prikazano</text>
+                        <rect x="22" y="262" width="176" height="38" rx="6" fill="rgba(232,160,32,0.07)" stroke="rgba(232,160,32,0.28)" stroke-width="1"/>
+                        <text x="110" y="286" text-anchor="middle" fill="#e8a020" font-size="11.5" font-family="Segoe UI,sans-serif">3 studenta • 1 projekat</text>
+                    </svg>
+                    <p class="onas-panel-natpis">Grupa 33 — TPTP 2026</p>
+                </div>
+            </aside>
+
+        </div>
     </article>
                       <!-- Article o našem projektu -->
     <footer>
