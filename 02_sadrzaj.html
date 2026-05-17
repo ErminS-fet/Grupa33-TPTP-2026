@@ -71,295 +71,363 @@
         </div>
                     <!-- Glavna linkovi za sve cetiri stranice -->
     </header>
-    <section>
-  <h1>Goriva</h1>
-
-<table>
-    <tr>
-        <th>Goriva</th>
-        <th>Dizel</th>
-        <th>Super 95</th>
-        <th>Super 98</th>
-        <th>LPG/Plin</th>
-        <th>Lož Ulje</th>
-    </tr>
-
-    <tr>
-        <td>Cijena</td>
-        <td>
-            <div id="cijena-dizel">0,00KM</div>
-        </td>
-        <td>
-            <div id="cijena-super95">0,00KM</div>
-        </td>
-        <td>
-            <div id="cijena-super98">0,00KM</div>
-        </td>
-        <td>
-            <div id="cijena-lpg">0,00KM</div>
-        </td>
-        <td>
-            <div id="cijena-lozulje">0,00KM</div>
-        </td>
-    </tr>
-
-    <tr>
-        <td>Promjena</td>
-        <td>
-            <div id="promjena-dizel">0,00KM</div>
-        </td>
-        <td>
-            <div id="promjena-super95">0,00KM</div>
-        </td>
-        <td>
-            <div id="promjena-super98">0,00KM</div>
-        </td>
-        <td>
-            <div id="promjena-lpg">0,00KM</div>
-        </td>
-        <td>
-            <div id="promjena-lozulje">0,00KM</div>
-        </td>
-    </tr>
-
-    <tr>
-        <td>Najjeftinija cijena</td>
-        <td>
-            <div id="najjeftinija-dizel">0,00KM</div>
-        </td>
-        <td>
-            <div id="najjeftinija-super95">0,00KM</div>
-        </td>
-        <td>
-            <div id="najjeftinija-super98">0,00KM</div>
-        </td>
-        <td>
-            <div id="najjeftinija-lpg">0,00KM</div>
-        </td>
-        <td>
-            <div id="najjeftinija-lozulje">0,00KM</div>
-        </td>
-    </tr>
-
-    <tr>
-        <td>Grad</td>
-        <td>
-            <div id="grad-dizel">Grad</div>
-        </td>
-        <td>
-            <div id="grad-super95">Grad</div>
-        </td>
-        <td>
-            <div id="grad-super98">Grad</div>
-        </td>
-        <td>
-            <div id="grad-lpg">Grad</div>
-        </td>
-        <td>
-            <div id="grad-lozulje">Grad</div>
-        </td>
-    </tr>
-
-    <tr>
-        <td>Benzinska</td>
-        <td>
-            <div id="pumpa-dizel">Benzinska</div>
-        </td>
-        <td>
-            <div id="pumpa-super95">Benzinska</div>
-        </td>
-        <td>
-            <div id="pumpa-super98">Benzinska</div>
-        </td>
-        <td>
-            <div id="pumpa-lpg">Benzinska</div>
-        </td>
-        <td>
-            <div id="pumpa-lozulje">Benzinska</div>
-        </td>
-    </tr>
-</table>
-</section>
     
-    <main> 
+    <section class="sadrzaj-tabela-sekcija">
+                    <!-- Tabela koja prati cijene goriva -->
+            <h1>Goriva</h1>
+            <div class="tabela-wrapper">
+                <table>
+                    <tr>
+                        <th>Goriva</th>
+                        <th>Dizel</th>
+                        <th>Super 95</th>
+                        <th>Super 98</th>
+                        <th>LPG/Plin</th>
+                        <th>Lož Ulje</th>
+                    </tr>
+                    <tr>
+                        <td>Cijena</td>
+                        <td><div id="cijena-dizel">0,00KM</div></td>
+                        <td><div id="cijena-super95">0,00KM</div></td>
+                        <td><div id="cijena-super98">0,00KM</div></td>
+                        <td><div id="cijena-lpg">0,00KM</div></td>
+                        <td><div id="cijena-lozulje">0,00KM</div></td>
+                    </tr>
+                    <tr>
+                        <td>Promjena</td>
+                        <td><div id="promjena-dizel">0,00KM</div></td>
+                        <td><div id="promjena-super95">0,00KM</div></td>
+                        <td><div id="promjena-super98">0,00KM</div></td>
+                        <td><div id="promjena-lpg">0,00KM</div></td>
+                        <td><div id="promjena-lozulje">0,00KM</div></td>
+                    </tr>
+                    <tr>
+                        <td>Grad</td>
+                        <td><div id="grad-dizel">Grad</div></td>
+                        <td><div id="grad-super95">Grad</div></td>
+                        <td><div id="grad-super98">Grad</div></td>
+                        <td><div id="grad-lpg">Grad</div></td>
+                        <td><div id="grad-lozulje">Grad</div></td>
+                    </tr>
+                    <tr>
+                        <td>Benzinska</td>
+                        <td><div id="pumpa-dizel">Benzinska</div></td>
+                        <td><div id="pumpa-super95">Benzinska</div></td>
+                        <td><div id="pumpa-super98">Benzinska</div></td>
+                        <td><div id="pumpa-lpg">Benzinska</div></td>
+                        <td><div id="pumpa-lozulje">Benzinska</div></td>
+                    </tr>
+                </table>
+            </div>
+                    <!-- Tabela koja prati cijene goriva -->
+    </section>
+
+      <main class="sadrzaj-main">
+           <!-- Interaktivna forma koja proračuna lokaciju benzinske -->
+        <h1 class="sadrzaj-pretraga-naslov">Pronađite Benzinsku</h1>
+
+        <div class="pretraga-wrapper">
+
+            <form id="pretraga">
+
+                <div class="pretraga-red">
+                    <label for="lokacija">Unesite lokaciju</label>
+                    <div class="pretraga-polje">
+                        <input type="text" id="lokacija" name="lokacija" placeholder="Tuzla / Kalesija / Lukavac...">
+                        <span class="pretraga-hint">Unesite grad ili općinu u Tuzlanskom Kantonu</span>
+                    </div>
+                </div>
+
+                <div class="pretraga-red">
+                    <label for="vrstagoriva">Vrsta goriva</label>
+                    <div class="pretraga-polje">
+                        <select id="vrstagoriva" name="vrstagoriva">
+                            <option value="prazno">Odaberite gorivo</option>
+                            <option value="Dizel">Dizel</option>
+                            <option value="Super 95">Super 95</option>
+                            <option value="Super 98">Super 98</option>
+                            <option value="LPG/Plin">LPG / Plin</option>
+                            <option value="Lož Ulje">Lož Ulje</option>
+                        </select>
+                        <span class="pretraga-hint">Odaberite vrstu goriva koju tražite</span>
+                    </div>
+                </div>
+
+                <div class="pretraga-red">
+                    <label for="rastojanjebenzinske">Rastojanje (km)</label>
+                    <div class="pretraga-polje">
+                        <input type="text" id="rastojanjebenzinske" name="rastojanjebenzinske" placeholder="5 / 20 / 30...">
+                        <span class="pretraga-hint">Maksimalno rastojanje od vaše lokacije u kilometrima</span>
+                    </div>
+                </div>
+
+                <div class="pretraga-red">
+                    <span></span>
+                    <div class="pretraga-dugmad">
+                        <input type="submit" id="trenutnalokacija" value="Precizna lokacija">
+                        <input type="submit" id="potvrdi" value="Pretraži">
+                    </div>
+                </div>
+
+                <aside id="pretraga-rezultati">
+
+                </aside>
+
+            </form>
+
+            <div class="pretraga-rezultat" id="pretraga-panel">
+                <p>Unesite lokaciju i vrstu goriva, pa kliknite <strong>Pretraži</strong> da pronađete najbliže pumpe.</p>
+            </div>
+
+        </div>
                     <!-- Interaktivna forma koja proračuna lokaciju benzinske -->
-      <form id="pretraga">
-          <label for="lokacija">Unesite lokaciju</label><br>
-          <input type="text" id="lokacija" name="lokacija" placeholder="Tuzla/Kalesija/Lukavac...."><br>
-          <input type="submit" id="trenutnalokacija" value="Precizna lokacija">
-          <label for="vrstagoriva">Koja vrsta goriva?</label><br>
-          <select id="vrstagoriva">
-              <option name="vrstagoriva" value="prazno">
-                  
-              </option>
-              <option name="vrstagoriva" value="Dizel">
-                  Dizel
-              </option>
-              <option name="vrstagoriva" value="Super 95">
-                  Super 95
-              </option>
-              <option name="vrstagoriva" value="Super 98">
-                  Super 98
-              </option>
-              <option name="vrstagoriva" value="LPG/Plin">
-                  LPG/Plin
-              </option>
-              <option name="vrstagoriva" value="Lož Ulje">
-                  Lož Ulje
-              </option>
-          </select>
-          <label for="rastojanjebenzinske">Na koje rastojanje u kilometrima?</label>
-          <input type="text" id="rastojanjebenzinske" name="rastojanjebenzinske" placeholder="5km/20km/30km...."><br><br>
-          <input type="submit" id="potvrdi" value="Potvrdi">
-          <aside>
-              
-          </aside>
-      </form>
-                    <!-- Interaktivna forma koja proračuna lokaciju benzinske -->
-      
     </main>
 
-    <article>
-                    <!-- Ugniježdena lista sa gradovima i cijenama -->
+    <article class="sadrzaj-article">
+                    <!-- Ugniježdena lista sa gradovima i pumpama sa adresama -->
         <h1>Gradovi u TK</h1>
-        <ul class="category">
-            <li class="kategorija">Banovići
-                <dl class="podkategorija">
-                    <dt>Dizel</dt><dd> 0,00KM</dd>
-                    <dt>Super 95</dt><dd> 0,00KM</dd>
-                    <dt>Super 98</dt><dd> 0,00KM</dd>
-                    <dt>LPG/Plin</dt><dd> 0,00KM</dd>
-                    <dt>Lož Ulje</dt><dd> 0,00KM</dd>
-                </dl>
-            </li>
-            <li class="kategorija">Doboj Istok
-                <dl class="podkategorija">
-                    <dt>Dizel</dt><dd> 0,00KM</dd>
-                    <dt>Super 95</dt><dd> 0,00KM</dd>
-                    <dt>Super 98</dt><dd> 0,00KM</dd>
-                    <dt>LPG/Plin</dt><dd> 0,00KM</dd>
-                    <dt>Lož Ulje</dt><dd> 0,00KM</dd>
-                </dl>
-            </li>
-            <li class="kategorija">Gradačac
-                <dl class="podkategorija">
-                    <dt>Dizel</dt><dd> 0,00KM</dd>
-                    <dt>Super 95</dt><dd> 0,00KM</dd>
-                    <dt>Super 98</dt><dd> 0,00KM</dd>
-                    <dt>LPG/Plin</dt><dd> 0,00KM</dd>
-                    <dt>Lož Ulje</dt><dd> 0,00KM</dd>
-                </dl>
-            </li>
-            <li class="kategorija">Gračanica
-                <dl class="podkategorija">
-                    <dt>Dizel</dt><dd> 0,00KM</dd>
-                    <dt>Super 95</dt><dd> 0,00KM</dd>
-                    <dt>Super 98</dt><dd> 0,00KM</dd>
-                    <dt>LPG/Plin</dt><dd> 0,00KM</dd>
-                    <dt>Lož Ulje</dt><dd> 0,00KM</dd>
-                </dl>
-            </li>
-            <li class="kategorija">Kalesija
-                <dl class="podkategorija">
-                    <dt>Dizel</dt><dd>0,00KM</dd>
-                    <dt>Super 95</dt><dd> 0,00KM</dd>
-                    <dt>Super 98</dt><dd> 0,00KM</dd>
-                    <dt>LPG/Plin</dt><dd> 0,00KM</dd>
-                    <dt>Lož Ulje</dt><dd> 0,00KM</dd>
-                </dl>
-            </li>
-            <li class="kategorija">Kladanj
-                <dl class="podkategorija">
-                    <dt>Dizel</dt><dd>0,00KM</dd>
-                    <dt>Super 95</dt><dd> 0,00KM</dd>
-                    <dt>Super 98</dt><dd> 0,00KM</dd>
-                    <dt>LPG/Plin</dt><dd> 0,00KM</dd>
-                    <dt>Lož Ulje</dt><dd> 0,00KM</dd>
-                </dl>
-            </li>
-            <li class="kategorija">Lukavac
-                <dl class="podkategorija">
-                    <dt>Dizel</dt><dd>0,00KM</dd>
-                    <dt>Super 95</dt><dd> 0,00KM</dd>
-                    <dt>Super 98</dt><dd> 0,00KM</dd>
-                    <dt>LPG/Plin</dt><dd> 0,00KM</dd>
-                    <dt>Lož Ulje</dt><dd> 0,00KM</dd>
-                </dl>
-            </li>
-            <li class="kategorija">Sapna
-                <dl class="podkategorija">
-                    <dt>Dizel</dt><dd>0,00KM</dd>
-                    <dt>Super 95</dt><dd> 0,00KM</dd>
-                    <dt>Super 98</dt><dd> 0,00KM</dd>
-                    <dt>LPG/Plin</dt><dd> 0,00KM</dd>
-                    <dt>Lož Ulje</dt><dd> 0,00KM</dd>
-                </dl>
-            </li>
-            <li class="kategorija">Srebrenik
-                <dl class="podkategorija">
-                    <dt>Dizel</dt><dd>0,00KM</dd>
-                    <dt>Super 95</dt><dd> 0,00KM</dd>
-                    <dt>Super 98</dt><dd> 0,00KM</dd>
-                    <dt>LPG/Plin</dt><dd> 0,00KM</dd>
-                    <dt>Lož Ulje</dt><dd> 0,00KM</dd>
-                </dl>
-            </li>
-            <li class="kategorija">Teočak
-                <dl class="podkategorija">
-                    <dt>Dizel</dt><dd>0,00KM</dd>
-                    <dt>Super 95</dt><dd> 0,00KM</dd>
-                    <dt>Super 98</dt><dd> 0,00KM</dd>
-                    <dt>LPG/Plin</dt><dd> 0,00KM</dd>
-                    <dt>Lož Ulje</dt><dd> 0,00KM</dd>
-                </dl>
-            </li>
-            <li class="kategorija">Gradačac
-                <dl class="podkategorija">
-                    <dt>Dizel</dt><dd>0,00KM</dd>
-                    <dt>Super 95</dt><dd> 0,00KM</dd>
-                    <dt>Super 98</dt><dd> 0,00KM</dd>
-                    <dt>LPG/Plin</dt><dd> 0,00KM</dd>
-                    <dt>Lož Ulje</dt><dd> 0,00KM</dd>
-                </dl>
-            </li>
-            <li class="kategorija">Tuzla
-                <dl class="podkategorija">
-                    <dt>Dizel</dt><dd>0,00KM</dd>
-                    <dt>Super 95</dt><dd> 0,00KM</dd>
-                    <dt>Super 98</dt><dd> 0,00KM</dd>
-                    <dt>LPG/Plin</dt><dd> 0,00KM</dd>
-                    <dt>Lož Ulje</dt><dd> 0,00KM</dd>
-                </dl>
-            </li>
-            <li class="kategorija">Čelić
-                <dl class="podkategorija">
-                    <dt>Dizel</dt><dd>0,00KM</dd>
-                    <dt>Super 95</dt><dd> 0,00KM</dd>
-                    <dt>Super 98</dt><dd> 0,00KM</dd>
-                    <dt>LPG/Plin</dt><dd> 0,00KM</dd>
-                    <dt>Lož Ulje</dt><dd> 0,00KM</dd>
-                </dl>
-            </li>
-            <li class="kategorija">Živinice
-                <dl class="podkategorija">
-                    <dt>Dizel</dt><dd>0,00KM</dd>
-                    <dt>Super 95</dt><dd> 0,00KM</dd>
-                    <dt>Super 98</dt><dd> 0,00KM</dd>
-                    <dt>LPG/Plin</dt><dd> 0,00KM</dd>
-                    <dt>Lož Ulje</dt><dd> 0,00KM</dd>
-                </dl>
-            </li>
-        </ul>
+        <div class="gradovi-wrapper">
+            <ul class="category">
+
+                <li class="kategorija">Banovići
+                    <dl class="podkategorija">
+                        <dt>HIFA-PETROL</dt><dd>Armije BiH 5, Banovići</dd>
+                        <dt>BS Energopetrol Banovići</dt><dd>Armije BiH 2, Banovići</dd>
+                        <dt>HIFA</dt><dd>Oskova bb, Banovići</dd>
+                    </dl>
+                </li>
+
+                <li class="kategorija">Doboj Istok
+                    <dl class="podkategorija">
+                        <dt>NESTRO PETROL</dt><dd>P6F2+PMQ, Brijesnica Velika 74206</dd>
+                        <dt>Zedina</dt><dd>P5GF+MHQ, M4, Klokotnica</dd>
+                        <dt>Zedina</dt><dd>P68H+HM6, Brijesnica Mala</dd>
+                        <dt>Skrebo Gas Station</dt><dd>P699+347, Brijesnica Mala</dd>
+                    </dl>
+                </li>
+
+                <li class="kategorija">Gradačac
+                    <dl class="podkategorija">
+                        <dt>AREX</dt><dd>Kerep bb, Donji Lukavac 76250</dd>
+                        <dt>Benzinska pumpa Belamionix</dt><dd>VCQC+QW5, Sarajevska, Gradačac 76250</dd>
+                        <dt>Cramer</dt><dd>RF62+JRX, Kerep 76250</dd>
+                        <dt>BS EnergoPetrol</dt><dd>Sarajevska, Gradačac 76250</dd>
+                        <dt>BP Eurotrans</dt><dd>VCCH+R7P, Josipa Šibera, Gradačac 76250</dd>
+                        <dt>HIFA OIL</dt><dd>Sarajevska bb, Gradačac 76250</dd>
+                        <dt>HIFA PETROL</dt><dd>Sarajevska bb, Gradačac 76250</dd>
+                        <dt>KOPEX-Sarajlić</dt><dd>QGP8+J75, M1.8, Hrgovi Donji 76250</dd>
+                        <dt>MAT-TRADE</dt><dd>QFRR+XRJ, R462, Vučkovci 76250</dd>
+                        <dt>Mešić-Com</dt><dd>Kerep 76250</dd>
+                        <dt>Mešić-Com</dt><dd>Hrgovi Donji 76250, Bosnia and Herzegovina</dd>
+                        <dt>RIMES PETROL</dt><dd>QGM8+M8Q, Hrgovi Donji 76250</dd>
+                        <dt>UNIKOMERC</dt><dd>Donje Ledenice 76250</dd>
+                        <dt>UNIX OIL</dt><dd>RFF2+XRX, Donji Lukavac 76250</dd>
+                    </dl>
+                </li>
+
+                <li class="kategorija">Gračanica
+                    <dl class="podkategorija">
+                        <dt>BINGO PETROL</dt><dd>P895+8G6, Gračanica</dd>
+                        <dt>BINGO PETROL</dt><dd>Branilaca grada, Gračanica 75320</dd>
+                        <dt>Belamionix Benzinska pumpa</dt><dd>M8JF+8F3, Pribava 75320</dd>
+                        <dt>BS INA</dt><dd>Gračaničkih gazija 28, Gračanica</dd>
+                        <dt>HS BAUKOP</dt><dd>Šenik, Gračanica 75320</dd>
+                        <dt>Gazprom</dt><dd>M8Q5+6X7, Gračanica 75320</dd>
+                        <dt>Trepa Trade</dt><dd>M7PX+QVC, Gračanica</dd>
+                        <dt>Hasić Transporte</dt><dd>Branilaca grada bb, Gračanica 75320</dd>
+                        <dt>BP NASKO</dt><dd>JCC4+6JG, M4, Miričina 75329</dd>
+                        <dt>B.P. SAX</dt><dd>M7RR+JMX, Gračanica</dd>
+                        <dt>Trgovir</dt><dd>P733+83J, Stjepan Polje</dd>
+                        <dt>Zeka Comerc</dt><dd>M7X9+M59, Stjepan Polje 75324</dd>
+                    </dl>
+                </li>
+
+                <li class="kategorija">Kalesija
+                    <dl class="podkategorija">
+                        <dt>POLO</dt><dd>M4, Memići</dd>
+                        <dt>Halilović</dt><dd>CWCF+P5P, Memići</dd>
+                        <dt>BP AMOX</dt><dd>CVPM+HJX, Senada Mehdina Hodžića, Kalesija Grad 75260</dd>
+                        <dt>Bingo Petrol</dt><dd>CVQJ+RGP, Kapetana Hajrudina Mešića - Hajre, Kalesija Grad</dd>
+                        <dt>BS INA</dt><dd>Senada Mehdina Hodžića, Kalesija Grad 75260</dd>
+                        <dt>POLO</dt><dd>FV39+847, M4, Kalesija Grad</dd>
+                        <dt>IBEM Oil</dt><dd>FR6Q+3Q2, M4, Miljanovci</dd>
+                        <dt>POLO</dt><dd>75268, Međaš bb, Rainci Gornji</dd>
+                        <dt>Benzinska Pumpa Sakić</dt><dd>Kikači bb, Tojšići</dd>
+                        <dt>PROMEX A-3</dt><dd>Vukovije Gornje 75256</dd>
+                        <dt>BP BINGO PETROL</dt><dd>FQ52+QVJ, Vukovije Donje</dd>
+                    </dl>
+                </li>
+
+                <li class="kategorija">Kladanj
+                    <dl class="podkategorija">
+                        <dt>AMOX TRADE</dt><dd>6PH2+V35, Kladanj</dd>
+                        <dt>Es-Petrol</dt><dd>6PM2+M9H, M18, Kladanj</dd>
+                        <dt>BS Energopetrol</dt><dd>M18, Kladanj</dd>
+                        <dt>PETROL STUPARI</dt><dd>8MHM+H96</dd>
+                    </dl>
+                </li>
+
+                <li class="kategorija">Lukavac
+                    <dl class="podkategorija">
+                        <dt>Junuzović-Kopex</dt><dd>M4, Lukavac 75300</dd>
+                        <dt>Energopetrol</dt><dd>Magistralni put, Modrac 75300</dd>
+                        <dt>Hifa Petrol</dt><dd>GGHH+R7X, Lukavačkih brigada, Lukavac 75720</dd>
+                        <dt>Benzinska Pumpa Junuzović-Kopex</dt><dd>Lukavačkih brigada, Lukavac 75300</dd>
+                        <dt>Sultan Benz</dt><dd>Poljice 75303, Poljice</dd>
+                        <dt>Sultan Benz</dt><dd>GF6P+6C5, R471, Prokosovići</dd>
+                        <dt>Nasko</dt><dd>GF75+QM3</dd>
+                        <dt>Nasko</dt><dd>M4, Dobošnica 75308</dd>
+                    </dl>
+                </li>
+                
+                <li class="kategorija">Srebrenik
+                    <dl class="podkategorija">
+                        <dt>Gazprom</dt><dd>JH9F+2HW, M1.8, Tinja Gornja 75357</dd>
+                        <dt>HM RIMES OIL</dt><dd>M1.8</dd>
+                        <dt>Jatina Pumpa</dt><dd>JHR2+H34, Donji Podpeć</dd>
+                        <dt>HIFA-PETROL</dt><dd>MFFV+646, Duboki Potok</dd>
+                        <dt>Hifa</dt><dd>MGR4+R3G, Ćojlučko Polje 75350</dd>
+                        <dt>Gazprom</dt><dd>PF3V+FJ3, M1.8, Srebrenik 75350</dd>
+                        <dt>BS INA</dt><dd>M1.8, Srebrenik 75350</dd>
+                        <dt>Belamionix</dt><dd>PF4R+JVQ, Srebrenik 75350</dd>
+                        <dt>Kopex Sarajlić</dt><dd>Ivana Markovića Irca, Srebrenik</dd>
+                        <dt>Benzinska pumpa ALI COMPANY</dt><dd>Ćehaje Srebrenik Tuzla Bosna-Hersek Federasyonu, Ćehaje</dd>
+                        <dt>Gazprom</dt><dd>PFMP+P7P, M1.8, Špionica Centar 75356</dd>
+                        <dt>Kopex-Sarajlić</dt><dd>PFPP+2C3, Špionica Donja 75350</dd>
+                        <dt>Benzinska stanica JATA</dt><dd>Sladna</dd>
+                        <dt>UNO-PROM</dt><dd>QC33+R63, Doborovci</dd>
+                        <dt>IN-VIVO LJEPUNICE</dt><dd>Ljepunice 75000</dd>
+                    </dl>
+                </li>
+
+                <li class="kategorija">Teočak
+                    <dl class="podkategorija">
+                        <dt>NUKI</dt><dd>Teocak bb, 75414, Teočak-Krstac</dd>
+                    </dl>
+                </li>
+
+                <li class="kategorija">Tuzla
+                    <dl class="podkategorija">
+                        <dt>Hifa Petrol</dt><dd>Stara Solana, Simin Han 75000</dd>
+                        <dt>Petrol</dt><dd>3. tuzlanske brigade 172, Simin Han 75000</dd>
+                        <dt>BS Energopetrol</dt><dd>1. tuzlanske brigade 12, Tuzla Grad 75109</dd>
+                        <dt>Nestro</dt><dd>HM4V+HFV, Tuzla 75000</dd>
+                        <dt>Benzinska Hifa Petrol</dt><dd>GMHV+GVV, Bulevar 2. korpusa Armije Republike Bosne i Hercegovine, Tuzla Grad 75000</dd>
+                        <dt>Gazprom</dt><dd>II korpusa Armije BiH bb, Tuzla 75000</dd>
+                        <dt>BS INA</dt><dd>Kulina bana 7, Tuzla Grad 75000</dd>
+                        <dt>BS Energopetrol</dt><dd>Muhameda Hevaija Uskufija 5, Tuzla Grad 75000</dd>
+                        <dt>BS INA</dt><dd>Bosne Srebrene 54, Tuzla Grad 75000</dd>
+                        <dt>Petrol</dt><dd>Rudarska 72, Tuzla Grad 75000</dd>
+                        <dt>BS INA</dt><dd>18. Hrvatske Brigade, Tuzla Grad 75000</dd>
+                        <dt>NESTRO</dt><dd>GJMQ+4V7, Doboj 74000</dd>
+                        <dt>Hifa</dt><dd>Husinskih Rudara 133, Tuzla Grad 75000</dd>
+                        <dt>Petrol</dt><dd>Husinskih Rudara bb, Tuzla Grad 75000</dd>
+                        <dt>JK CNG Plinska Stanica</dt><dd>Bukinje bb, Tuzla Grad 75000</dd>
+                        <dt>BS Energopetrol</dt><dd>Industrijska, Tuzla Grad 75000</dd>
+                        <dt>Gazprom</dt><dd>Vjekoslava Tunjića 15, Šićki Brod 75000</dd>
+                        <dt>Gazprom</dt><dd>M18 bb, Šićki Brod 75000</dd>
+                        <dt>Petrol</dt><dd>GJ48+G4V, Cerik 75000</dd>
+                        <dt>BS INA</dt><dd>M1.8, Šićki Brod 75203</dd>
+                        <dt>BELAMIONIX</dt><dd>šići bb Bistarac, Šići 75000</dd>
+                        <dt>Kopex-Sarajlić</dt><dd>GH7F+MP8, Magistralni put, Šići 75203</dd>
+                    </dl>
+                </li>
+
+                <li class="kategorija">Čelić
+                    <dl class="podkategorija">
+                        <dt>Fasogas</dt><dd>MP9M+WG2, Šibošnica</dd>
+                        <dt>Jasko Trend</dt><dd>Mirsada Zahirovića bb, Vražići 75248</dd>
+                        <dt>Peggy</dt><dd>PRM4+RV8, Ratkovići 75246</dd>
+                        <dt>BINGO PETROL</dt><dd>PRJ9+7H7, Čelić</dd>
+                        <dt>Tehnopetrol Benzinska Pumpa</dt><dd>PRFC+P9J, Čelić</dd>
+                    </dl>
+                </li>
+
+                <li class="kategorija">Živinice
+                    <dl class="podkategorija">
+                        <dt>Benzinska Pumpa Sakić</dt><dd>CQ94+R5C, Zelenika 75276</dd>
+                        <dt>Hifa</dt><dd>CM57+V9V, Đurđevik 75270</dd>
+                        <dt>BS Energopetrol</dt><dd>M18, Kovači 75270</dd>
+                        <dt>Energopetrol terminal naftnih derivata</dt><dd>M18 bb, Živinice Gornje 75270</dd>
+                        <dt>Hifa</dt><dd>M18 bb, Živinice 75270</dd>
+                        <dt>Hifa Petrol</dt><dd>Prva ulica 224, Živinice 75270</dd>
+                        <dt>HIFA</dt><dd>Magistralni put, Živinice 75270</dd>
+                        <dt>PETROL</dt><dd>FMJ9+36V, Dubravska, Dubrave Donje 75274</dd>
+                        <dt>Hadžić Benz</dt><dd>Dubrave Donje bb, Dubrave Donje 75274</dd>
+                        <dt>POLO Junior</dt><dd>Hadžići, Dubrave Donje 75274</dd>
+                        <dt>IN-VIVO</dt><dd>Modračka bb, Živinice 75270</dd>
+                        <dt>IN-VIVO</dt><dd>Željeznička 4, Živinice 75270</dd>
+                        <dt>IN-VIVO</dt><dd>Toplička bb, Živinice 75270</dd>
+                        <dt>IN-VIVO</dt><dd>CJGQ+43Q, Višća Donja 75270</dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
                     <!-- Ugniježdena lista sa gradovima i cijenama -->
     </article>
     <section>
                     <!-- Galerija u obliku kartica -->
+        <section class="sadrzaj-galerija">
         <h1>Galerija svih korištenih slika</h1>
-        <div class="" id="">
-            <section class="">
-                <img src="" alt="">
-            </section>
+        <div class="galerija-grid">
+            <section><img src="06_images/SUPER PETROL.jpg" alt="Super Petrol benzinska pumpa"></section>
+            <section><img src="06_images/HIFA.jpg" alt="Hifa Petrol benzinska pumpa"></section>
+            <section><img src="06_images/GAZPROM.jpg" alt="Gazprom benzinska pumpa"></section>
+            <section><img src="06_images/BENZINSKA INA.jpg" alt="INA benzinska pumpa"></section>
+            <section><img src="06_images/BINGO.jpg" alt="Bingo Petrol benzinska pumpa"></section>
+            <section><img src="06_images/MEŠIĆ.jpg" alt="Mešić benzinska pumpa"></section>
+            <section><img src="06_images/ADIRA OIL.jpg" alt="Adira Oil benzinska pumpa"></section>
+            <section><img src="06_images/NESTRO.jpg" alt="Nestro Petrol benzinska pumpa"></section>
+            <section><img src="06_images/BELAMIONIX.jpg" alt="Belamionix Petrol benzinska pumpa"></section>
+            <section><img src="06_images/POLO.jpg" alt="Polo benzinska pumpa"></section>
+            <section><img src="06_images/JUNUZOVIC.jpg" alt="Junuzović-Kopex benzinska pumpa"></section>
+            <section><img src="06_images/NASLOVNA.png" alt="PumpaBon naslovna slika"></section>
+            <section><img src="06_images/22dba99d676b4054465b.jpeg" alt="Petrol benzinska pumpa"></section>
+            <section><img src="06_images/ALICOMPANZ.jpg" alt="ALI COMPANY benzinska pumpa"></section>
+            <section><img src="06_images/ALMY.jpg" alt="ALMY benzinska pumpa"></section>
+            <section><img src="06_images/AMOX.jpg" alt="AMOX benzinska pumpa"></section>
+            <section><img src="06_images/CEROL.jpeg" alt="Cerol benzinska pumpa"></section>
+            <section><img src="06_images/CRAMER.jpeg" alt="Cramer benzinska pumpa"></section>
+            <section><img src="06_images/DEFUEL.jpg" alt="DEFUEL benzinska pumpa"></section>
+            <section><img src="06_images/ENERGOPETROL.jpg" alt="Energopetrol benzinska pumpa"></section>
+            <section><img src="06_images/FASOGAS.jpeg" alt="Fasogas benzinska pumpa"></section>
+            <section><img src="06_images/HADZIC.jpg" alt="Hadžić benzinska pumpa"></section>
+            <section><img src="06_images/HALILOVIC.jpg" alt="Halilović benzinska pumpa"></section>
+            <section><img src="06_images/HASICTRANSPORT.jpg" alt="Hasić Transporte benzinska pumpa"></section>
+            <section><img src="06_images/HSBAUKOP.jpg" alt="HS Baukop benzinska pumpa"></section>
+            <section><img src="06_images/IBEM.jpg" alt="IBEM Oil benzinska pumpa"></section>
+            <section><img src="06_images/INVIVO.jpg" alt="IN-VIVO benzinska pumpa"></section>
+            <section><img src="06_images/JASKO.jpg" alt="Jasko benzinska pumpa"></section>
+            <section><img src="06_images/JUNUZOVIC.jpg" alt="Junuzović Kopex benzinska pumpa"></section>
+            <section><img src="06_images/KOPEXSARAJLIC.jpg" alt="KOPEX-Sarajlić benzinska pumpa"></section>
+            <section><img src="06_images/MATTRADE.jpg" alt="MAT-Trade benzinska pumpa"></section>
+            <section><img src="06_images/MAXENERGY.jpg" alt="MAX ENERGY benzinska pumpa"></section>
+            <section><img src="06_images/NASKO.jpg" alt="Nasko benzinska pumpa"></section>
+            <section><img src="06_images/NASLOVNA.png" alt="Super Petrol benzinska pumpa"></section>
+            <section><img src="06_images/NEZIC.jpeg" alt="Nezić benzinska pumpa"></section>
+            <section><img src="06_images/NEŠKOVIĆ.jpeg" alt="Neškovići benzinska pumpa"></section>
+            <section><img src="06_images/NUKI.jpg" alt="Nuki benzinska pumpa"></section>
+            <section><img src="06_images/NUTRIA.jpg" alt="Nutria benzinska pumpa"></section>
+            <section><img src="06_images/OXIS.jpg" alt="OXIS Oil benzinska pumpa"></section>
+            <section><img src="06_images/PEGGZ.jpeg" alt="Pegišped benzinska pumpa"></section>
+            <section><img src="06_images/PROMEX.jpg" alt="PROMEX benzinska pumpa"></section>
+            <section><img src="06_images/PUMPABON2.png" alt="logotip"></section>
+            <section><img src="06_images/RIMES.jpg" alt="Rimes benzinska pumpa"></section>
+            <section><img src="06_images/SAX.jpeg" alt="Sax benzinska pumpa"></section>
+            <section><img src="06_images/SILE.png" alt="Šile benzinska pumpa"></section>
+            <section><img src="06_images/SKREBO.jpg" alt="Škrebo benzinska pumpa"></section>
+            <section><img src="06_images/SULTAN.jpeg" alt="Sultan benzinska pumpa"></section>
+            <section><img src="06_images/SKALJIC.jpg" alt="Škaljić benzinska pumpa"></section>
+            <section><img src="06_images/SUPER PETROL.jpg" alt="Super petrol benzinska pumpa"></section>
+            <section><img src="06_images/TEHNOPETROL.jpg" alt="Tehnopetrol benzinska pumpa"></section>
+            <section><img src="06_images/TRGOVIR.jpg" alt="Trgovir benzinska pumpa"></section>
+            <section><img src="06_images/UNIKOMERC.jpg" alt="Unikomerc benzinska pumpa"></section>
+            <section><img src="06_images/UNIX.jpg" alt="Unix benzinska pumpa"></section>
+            <section><img src="06_images/ZEKA.jpg" alt="Zeka benzinska pumpa"></section>
+            <section><img src="06_images/naslovna3.png" alt="Super petrol benzinska pumpa"></section>
+            <section><img src="06_images/pumpa14.jpg" alt="super petrol benzinska pumpa"></section>
         </div>
+    </section>
                     <!-- Galerija u obliku kartica -->
     </section>
   
