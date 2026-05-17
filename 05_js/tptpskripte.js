@@ -745,8 +745,6 @@ document.addEventListener("DOMContentLoaded", function () {
    6. OTVARANJE LISTE PUMPI PO GRADOVIMA (02_sadrzaj.html)
    ============================================================ */
 
-  /* OTVARANJE LISTE PUMPI PO GRADOVIMA */
-
   const gradovi = document.querySelectorAll(".kategorija");
 
   if (gradovi.length > 0) {
