@@ -1554,3 +1554,753 @@ body.light-mode .onas-panel {
     }
 }
 
+/* ============================================================
+   SADRZAJ.HTML — Pronađite Benzinsku
+   Sve sekcije: tabela goriva, forma pretrage, lista gradova,
+   galerija slika
+   ============================================================ */
+
+/* ============================================================
+   SECTION — TABELA GORIVA (ispod headera)
+   Prikazuje cijene, promjene i najjeftinije po vrsti goriva
+   ============================================================ */
+
+.sadrzaj-tabela-sekcija {
+    padding: var(--razmak-veliki);
+    background: var(--boja-aside-pozadina);
+    border-top: 2px solid var(--boja-primarna);
+    border-bottom: 2px solid rgba(232, 160, 32, 0.2);
+    transition: background-color var(--tranzicija);
+}
+
+.sadrzaj-tabela-sekcija h1 {
+    font-family: var(--font-naslov);
+    font-size: 1.1rem;
+    color: var(--boja-primarna);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 var(--razmak-veliki) 0;
+    padding-bottom: var(--razmak-mali);
+    border-bottom: 1px solid rgba(232, 160, 32, 0.3);
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--razmak-veliki);
+}
+
+/* Wrapper koji centrira i daje scroll na malim ekranima */
+.tabela-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow-x: auto;
+    border-radius: 10px;
+    box-shadow: var(--sjena);
+}
+
+/* Sama tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-tijelo);
+    font-size: 0.88rem;
+    background: rgba(26, 26, 46, 0.7);
+    min-width: 600px;
+}
+
+/* Zaglavlje tabele */
+table thead tr,
+table tr:first-child {
+    background: var(--boja-sekundarna);
+}
+
+table th {
+    font-family: var(--font-naslov);
+    font-size: 0.7rem;
+    color: var(--boja-primarna);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 14px var(--razmak-srednji);
+    text-align: center;
+    border-bottom: 2px solid rgba(232, 160, 32, 0.4);
+    white-space: nowrap;
+}
+
+/* Prva kolona — oznaka reda */
+table th:first-child,
+table td:first-child {
+    text-align: left;
+    padding-left: var(--razmak-veliki);
+    font-family: var(--font-naslov);
+    font-size: 0.68rem;
+    color: var(--boja-aside-tekst);
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+/* Redovi tabele */
+table tr {
+    border-bottom: 1px solid rgba(232, 160, 32, 0.1);
+    transition: background-color var(--tranzicija);
+}
+
+table tr:hover {
+    background: rgba(232, 160, 32, 0.05);
+}
+
+/* Izmjenični redovi */
+table tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+table tr:nth-child(even):hover {
+    background: rgba(232, 160, 32, 0.05);
+}
+
+table td {
+    padding: 13px var(--razmak-srednji);
+    text-align: center;
+    color: #cccccc;
+    vertical-align: middle;
+    transition: color var(--tranzicija);
+}
+
+/* Div-ovi unutar ćelija (id="cijena-dizel" itd.) */
+table td div {
+    font-size: 0.9rem;
+    color: var(--boja-tekst);
+    font-weight: 500;
+    transition: color var(--tranzicija);
+}
+
+/* Red "Cijena" — istaknuti tekst */
+table tr:nth-child(2) td div {
+    color: var(--boja-primarna);
+    font-family: var(--font-naslov);
+    font-size: 0.88rem;
+    letter-spacing: 0.5px;
+}
+
+/* Red "Promjena" — zelena/crvena boja ide iz JS-a,
+   ali zadana boja neka bude neutralna */
+table tr:nth-child(3) td div {
+    font-size: 0.84rem;
+    color: #aaaaaa;
+}
+
+/* Red "Najjeftinija cijena" */
+table tr:nth-child(4) td div {
+    color: #3dd68c;
+    font-size: 0.84rem;
+}
+
+/* Redovi "Grad" i "Benzinska" — tanje */
+table tr:nth-child(5) td div,
+table tr:nth-child(6) td div {
+    font-size: 0.82rem;
+    color: #888888;
+}
+
+/* ============================================================
+   MAIN — FORMA ZA PRETRAGU BENZINSKIH PUMPI
+   ============================================================ */
+
+.sadrzaj-main {
+    padding: var(--razmak-veliki);
+    background: var(--boja-pozadina);
+    border-bottom: 2px solid rgba(232, 160, 32, 0.15);
+}
+
+.sadrzaj-main h1,
+.sadrzaj-pretraga-naslov {
+    font-family: var(--font-naslov);
+    font-size: 1.1rem;
+    color: var(--boja-primarna);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 var(--razmak-veliki) 0;
+    padding-bottom: var(--razmak-mali);
+    border-bottom: 1px solid rgba(232, 160, 32, 0.3);
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--razmak-veliki);
+}
+
+/* Wrapper koji centrira formu i ograničava širinu */
+.pretraga-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    gap: var(--razmak-veliki);
+    align-items: flex-start;
+}
+
+/* Forma pretrage */
+#pretraga {
+    flex: 0 0 420px;
+    background: rgba(26, 26, 46, 0.6);
+    border: 1px solid rgba(232, 160, 32, 0.2);
+    border-radius: 10px;
+    padding: var(--razmak-veliki);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* Svaki red forme: label + input, dva stupca */
+.pretraga-red {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    align-items: start;
+    gap: var(--razmak-mali) var(--razmak-srednji);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(232, 160, 32, 0.08);
+}
+
+.pretraga-red:last-child { border-bottom: none; }
+
+/* Label desno poravnat, kao na kontakt stranici */
+#pretraga label {
+    font-family: var(--font-tijelo);
+    font-size: 0.86rem;
+    color: var(--boja-tekst);
+    padding-top: 9px;
+    text-align: right;
+    padding-right: var(--razmak-srednji);
+    white-space: nowrap;
+    transition: color var(--tranzicija);
+}
+
+/* Wrapper za input + hint */
+.pretraga-polje {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* Input i select unutar pretrage */
+#pretraga input[type="text"],
+#pretraga select {
+    width: 100%;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(200, 200, 200, 0.22);
+    border-radius: 4px;
+    color: var(--boja-tekst);
+    font-family: var(--font-tijelo);
+    font-size: 0.88rem;
+    outline: none;
+    transition: border-color var(--tranzicija), background-color var(--tranzicija), box-shadow var(--tranzicija);
+    box-sizing: border-box;
+}
+
+#pretraga input[type="text"]:focus,
+#pretraga select:focus {
+    border-color: var(--boja-primarna);
+    background: rgba(232, 160, 32, 0.06);
+    box-shadow: 0 0 0 3px rgba(232, 160, 32, 0.1);
+}
+
+#pretraga input[type="text"]::placeholder {
+    color: rgba(255, 255, 255, 0.28);
+    font-size: 0.84rem;
+}
+
+/* Select custom strelica */
+#pretraga select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23e8a020' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 34px;
+    cursor: pointer;
+}
+
+#pretraga select option {
+    background: var(--boja-sekundarna);
+    color: var(--boja-tekst);
+}
+
+/* Hint tekst */
+.pretraga-hint {
+    font-size: 0.74rem;
+    color: #666666;
+    line-height: 1.4;
+    padding-left: 2px;
+    transition: color var(--tranzicija);
+}
+
+/* Dugmad pretrage */
+.pretraga-dugmad {
+    display: flex;
+    flex-direction: row;
+    gap: var(--razmak-srednji);
+    flex-wrap: wrap;
+    padding-top: var(--razmak-mali);
+}
+
+#trenutnalokacija {
+    padding: 9px 20px;
+    font-family: var(--font-naslov);
+    font-size: 0.68rem;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    border: 1px solid rgba(232, 160, 32, 0.4);
+    background: transparent;
+    color: var(--boja-primarna);
+    cursor: pointer;
+    transition: background-color var(--tranzicija), color var(--tranzicija), transform var(--tranzicija);
+}
+
+#trenutnalokacija:hover {
+    background: rgba(232, 160, 32, 0.1);
+    transform: translateY(-2px);
+}
+
+#potvrdi {
+    padding: 9px 24px;
+    font-family: var(--font-naslov);
+    font-size: 0.68rem;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    border: 2px solid var(--boja-primarna);
+    background: var(--boja-primarna);
+    color: var(--boja-sekundarna);
+    cursor: pointer;
+    transition: background-color var(--tranzicija), transform var(--tranzicija);
+}
+
+#potvrdi:hover {
+    background: var(--boja-hover);
+    border-color: var(--boja-hover);
+    transform: translateY(-2px);
+}
+
+/* Aside unutar forme (rezultati pretrage koje JS popunjava) */
+#pretraga aside {
+    margin-top: var(--razmak-srednji);
+    padding: var(--razmak-srednji);
+    background: rgba(232, 160, 32, 0.04);
+    border: 1px dashed rgba(232, 160, 32, 0.2);
+    border-radius: 6px;
+    min-height: 60px;
+    font-size: 0.84rem;
+    color: #777777;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--tranzicija), border-color var(--tranzicija);
+}
+
+#pretraga aside:not(:empty) {
+    background: rgba(26, 26, 46, 0.8);
+    border-color: rgba(232, 160, 32, 0.35);
+    color: var(--boja-tekst);
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+/* Desna strana pretrage — info panel (prazno, JS popunjava) */
+.pretraga-rezultat {
+    flex: 1;
+    background: rgba(26, 26, 46, 0.4);
+    border: 1px solid rgba(232, 160, 32, 0.15);
+    border-radius: 10px;
+    padding: var(--razmak-veliki);
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--razmak-srednji);
+    color: #555555;
+    font-size: 0.88rem;
+    text-align: center;
+}
+
+.pretraga-rezultat-ikona {
+    font-size: 3rem;
+    opacity: 0.4;
+}
+
+/* ============================================================
+   ARTICLE — UGNIJEŽĐENA LISTA GRADOVA
+   ============================================================ */
+
+.sadrzaj-article {
+    padding: var(--razmak-veliki);
+    background: var(--boja-aside-pozadina);
+    border-top: 2px solid rgba(232, 160, 32, 0.15);
+    border-bottom: 2px solid rgba(232, 160, 32, 0.15);
+    transition: background-color var(--tranzicija);
+}
+
+.sadrzaj-article h1 {
+    font-family: var(--font-naslov);
+    font-size: 1.1rem;
+    color: var(--boja-primarna);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 var(--razmak-veliki) 0;
+    padding-bottom: var(--razmak-mali);
+    border-bottom: 1px solid rgba(232, 160, 32, 0.3);
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--razmak-veliki);
+}
+
+/* Wrapper za grid gradova */
+.gradovi-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Lista gradova — grid layout */
+ul.category {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--razmak-srednji);
+}
+
+/* Svaki grad — kartica koja se može proširiti */
+li.kategorija {
+    background: rgba(26, 26, 46, 0.7);
+    border: 1px solid rgba(232, 160, 32, 0.18);
+    border-radius: 8px;
+    padding: var(--razmak-srednji);
+    font-family: var(--font-naslov);
+    font-size: 0.78rem;
+    color: var(--boja-primarna);
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: border-color var(--tranzicija), background-color var(--tranzicija), transform var(--tranzicija), box-shadow var(--tranzicija);
+    position: relative;
+}
+
+li.kategorija:hover {
+    border-color: rgba(232, 160, 32, 0.45);
+    background: rgba(232, 160, 32, 0.06);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(232, 160, 32, 0.15);
+}
+
+/* Strelica za accordion (JavaScript može toggleati .otvoren klasu) */
+li.kategorija::after {
+    content: '▾';
+    position: absolute;
+    top: var(--razmak-srednji);
+    right: var(--razmak-srednji);
+    font-size: 0.7rem;
+    color: rgba(232, 160, 32, 0.5);
+    transition: transform var(--tranzicija);
+}
+
+li.kategorija.otvoren::after {
+    transform: rotate(180deg);
+    color: var(--boja-primarna);
+}
+
+/* Podkategorija — dl lista goriva unutar grada */
+dl.podkategorija {
+    display: none;          /* JavaScript togglea display:grid */
+    grid-template-columns: 1fr auto;
+    gap: 4px 8px;
+    margin: var(--razmak-srednji) 0 0 0;
+    padding: var(--razmak-srednji) 0 0 0;
+    border-top: 1px solid rgba(232, 160, 32, 0.2);
+}
+
+li.kategorija.otvoren dl.podkategorija {
+    display: grid;
+}
+
+dl.podkategorija dt {
+    font-family: var(--font-tijelo);
+    font-size: 0.78rem;
+    color: #888888;
+    font-weight: normal;
+    padding: 3px 0;
+    transition: color var(--tranzicija);
+}
+
+dl.podkategorija dd {
+    font-family: var(--font-tijelo);
+    font-size: 0.78rem;
+    color: var(--boja-tekst);
+    margin: 0;
+    text-align: right;
+    padding: 3px 0;
+    transition: color var(--tranzicija);
+}
+
+dl.podkategorija dt:nth-child(1),
+dl.podkategorija dt:nth-child(3),
+dl.podkategorija dt:nth-child(5),
+dl.podkategorija dt:nth-child(7),
+dl.podkategorija dt:nth-child(9) {
+    /* svaka neparna vrsta dt — malo svjetliji */
+    color: #aaaaaa;
+}
+
+/* ============================================================
+   SECTION — GALERIJA SLIKA
+   ============================================================ */
+
+.sadrzaj-galerija {
+    padding: var(--razmak-veliki);
+    background: var(--boja-pozadina);
+    border-top: 2px solid rgba(232, 160, 32, 0.15);
+}
+
+.sadrzaj-galerija h1 {
+    font-family: var(--font-naslov);
+    font-size: 1.1rem;
+    color: var(--boja-primarna);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 var(--razmak-veliki) 0;
+    padding-bottom: var(--razmak-mali);
+    border-bottom: 1px solid rgba(232, 160, 32, 0.3);
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--razmak-veliki);
+}
+
+/* Wrapper galerije */
+.galerija-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--razmak-srednji);
+}
+
+/* Svaka galerijska sekcija = jedna kartica sa slikom */
+.galerija-grid section {
+    background: rgba(26, 26, 46, 0.6);
+    border: 1px solid rgba(232, 160, 32, 0.15);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform var(--tranzicija), box-shadow var(--tranzicija), border-color var(--tranzicija);
+}
+
+.galerija-grid section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 28px rgba(232, 160, 32, 0.2);
+    border-color: rgba(232, 160, 32, 0.4);
+}
+
+.galerija-grid section img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.galerija-grid section:hover img {
+    transform: scale(1.04);
+}
+
+/* ============================================================
+   LIGHT MODE — sadrzaj.html
+   ============================================================ */
+
+body.light-mode .sadrzaj-tabela-sekcija {
+    background: #f0ebe0;
+}
+
+body.light-mode table {
+    background: rgba(255, 255, 255, 0.85);
+}
+
+body.light-mode table thead tr,
+body.light-mode table tr:first-child {
+    background: #e0d8c8;
+}
+
+body.light-mode table th {
+    color: #c07800;
+}
+
+body.light-mode table th:first-child,
+body.light-mode table td:first-child {
+    color: #666666;
+}
+
+body.light-mode table td {
+    color: #3a3a3a;
+}
+
+body.light-mode table td div {
+    color: #1a1a2e;
+}
+
+body.light-mode table tr:nth-child(2) td div {
+    color: #c07800;
+}
+
+body.light-mode table tr:nth-child(3) td div {
+    color: #666666;
+}
+
+body.light-mode table tr:nth-child(4) td div {
+    color: #1a7a40;
+}
+
+body.light-mode table tr:nth-child(5) td div,
+body.light-mode table tr:nth-child(6) td div {
+    color: #777777;
+}
+
+body.light-mode table tr:hover {
+    background: rgba(232, 160, 32, 0.07);
+}
+
+body.light-mode .sadrzaj-main {
+    background: #f5f0e8;
+}
+
+body.light-mode #pretraga {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(232, 160, 32, 0.3);
+}
+
+body.light-mode #pretraga label {
+    color: #1a1a2e;
+}
+
+body.light-mode #pretraga input[type="text"],
+body.light-mode #pretraga select {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(0, 0, 0, 0.2);
+    color: #1a1a2e;
+}
+
+body.light-mode #pretraga input[type="text"]::placeholder {
+    color: rgba(0, 0, 0, 0.3);
+}
+
+body.light-mode #pretraga select option {
+    background: #ffffff;
+    color: #1a1a2e;
+}
+
+body.light-mode .pretraga-hint { color: #999999; }
+
+body.light-mode .pretraga-rezultat {
+    background: rgba(255, 255, 255, 0.6);
+    border-color: rgba(232, 160, 32, 0.2);
+    color: #888888;
+}
+
+body.light-mode .sadrzaj-article {
+    background: #ede8dc;
+}
+
+body.light-mode li.kategorija {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(232, 160, 32, 0.25);
+    color: #c07800;
+}
+
+body.light-mode li.kategorija:hover {
+    background: rgba(232, 160, 32, 0.1);
+}
+
+body.light-mode dl.podkategorija dt {
+    color: #777777;
+}
+
+body.light-mode dl.podkategorija dd {
+    color: #1a1a2e;
+}
+
+body.light-mode .sadrzaj-galerija {
+    background: #f5f0e8;
+}
+
+body.light-mode .galerija-grid section {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(232, 160, 32, 0.2);
+}
+
+/* ============================================================
+   MEDIA QUERIES — sadrzaj.html
+   ============================================================ */
+
+/* TABLET (600px - 900px) */
+@media (max-width: 900px) {
+    .sadrzaj-tabela-sekcija,
+    .sadrzaj-main,
+    .sadrzaj-article,
+    .sadrzaj-galerija {
+        padding: var(--razmak-srednji);
+    }
+
+    .pretraga-wrapper {
+        flex-direction: column;
+    }
+
+    #pretraga {
+        flex: none;
+        width: 100%;
+    }
+
+    .pretraga-rezultat {
+        width: 100%;
+    }
+
+    ul.category {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .galerija-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* MOBITEL (< 600px) */
+@media (max-width: 600px) {
+    /* Forma pretrage — jedna kolona */
+    .pretraga-red {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    #pretraga label {
+        text-align: left;
+        padding-right: 0;
+        padding-top: 0;
+        font-weight: 600;
+    }
+
+    .pretraga-dugmad {
+        flex-direction: column;
+    }
+
+    #trenutnalokacija,
+    #potvrdi {
+        width: 100%;
+        text-align: center;
+    }
+
+    ul.category {
+        grid-template-columns: 1fr;
+    }
+
+    .galerija-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .galerija-grid section img {
+        height: 180px;
+    }
+}
