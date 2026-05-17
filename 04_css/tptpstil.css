@@ -598,6 +598,28 @@ main {
 .karusel-trak .card a:hover { background-color: var(--boja-hover); }
 .karusel-trak .card.hidden { display: none; }
 
+.kartice-filter {
+  max-width: 500px;
+  margin: 0 auto 24px;
+  text-align: center;
+}
+
+.kartice-filter input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(232, 160, 32, 0.45);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--boja-tekst);
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.kartice-filter input:focus {
+  border-color: var(--boja-primarna);
+  box-shadow: 0 0 0 3px rgba(232, 160, 32, 0.12);
+}
+
 /* ============================================================
    LOKACIJE ARTICLE — ispod karusela na glavnoj stranici
    Lijevo: Google Maps iframe (aside), desno: tekst o lokacijama
