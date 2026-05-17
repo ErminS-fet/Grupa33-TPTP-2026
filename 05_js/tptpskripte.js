@@ -808,6 +808,11 @@ document.addEventListener("DOMContentLoaded", function () {
             ? "flex"
             : "none";
       });
+        const karusel = document.getElementByld("karusel-trak");
+        if (karusel) {
+         karusel.style.transform = "translateX(0px)";
+        }
+        window.dispatchEvent(newEvent("resize"));
     });
   }
 });
