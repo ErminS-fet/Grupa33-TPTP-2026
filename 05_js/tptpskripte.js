@@ -741,4 +741,75 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   }
+  /* ============================================================
+   6. OTVARANJE LISTE PUMPI PO GRADOVIMA (02_sadrzaj.html)
+   ============================================================ */
+
+  /* OTVARANJE LISTE PUMPI PO GRADOVIMA */
+
+  const gradovi = document.querySelectorAll(".kategorija");
+
+  if (gradovi.length > 0) {
+    gradovi.forEach(function (grad) {
+      grad.addEventListener("click", function () {
+        const vecOtvoren = grad.classList.contains("otvoren");
+
+        gradovi.forEach(function (g) {
+          g.classList.remove("otvoren");
+        });
+
+        if (!vecOtvoren) {
+          grad.classList.add("otvoren");
+        }
+      });
+    });
+  }
+  /* ============================================================
+   7. OTVARANJE LISTE PUMPI PO GRADOVIMA (02_sadrzaj.html)
+   ============================================================ */
+
+  const karticeWrapper = document.getElementById("kartice");
+
+  if (karticeWrapper) {
+    function normalizujTekst(tekst) {
+      return tekst
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+    }
+    const filterBox = document.createElement("div");
+    filterBox.classList.add("kartice-filter");
+
+    filterBox.innerHTML = `
+    <input 
+      type="text" 
+      id="filter-kartica" 
+      placeholder="Pretraži benzinsku pumpu..."
+    >
+  `;
+
+    karticeWrapper.parentElement.insertBefore(filterBox, karticeWrapper);
+
+    const filterInput = document.getElementById("filter-kartica");
+    const kartice = document.querySelectorAll("#karusel-trak .card");
+
+    filterInput.addEventListener("input", function () {
+      const pojam = normalizujTekst(this.value.trim());
+
+      kartice.forEach(function (kartica) {
+        const naslov = normalizujTekst(
+          kartica.querySelector("h3")?.textContent || "",
+        );
+        const opis = normalizujTekst(
+          kartica.querySelector("p")?.textContent || "",
+        );
+        const alt = normalizujTekst(kartica.querySelector("img")?.alt || "");
+
+        kartica.style.display =
+          naslov.includes(pojam) || opis.includes(pojam) || alt.includes(pojam)
+            ? "flex"
+            : "none";
+      });
+    });
+  }
 });
