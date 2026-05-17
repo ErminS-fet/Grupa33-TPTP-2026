@@ -16,7 +16,7 @@ Stranica je namijenjena da prati cijene goriva na benskinskim pumpama u Tuzlansk
 | Erol Mešanović | erolmesanovic-commits | JavaScript + logika |
 ## Tehnologije
 - HTML5
-- CSS3 (bez frameworka)
-- JavaScript (bez biblioteka)
+- CSS3 (bez CSS frameworka (Bootstrap, Tailwind...) i tabele za layout)
+- JavaScript (bez jQuery i drugih JS frameworka/biblioteka)
 ## AI alati koristeni u projektu
 - Claude: ideja za tekst na kontakt stranici
