@@ -812,7 +812,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (karusel) {
          karusel.style.transform = "translateX(0px)";
         }
-        window.dispatchEvent(newEvent("resize"));
+        window.dispatchEvent(new Event("resize"));
     });
   }
 });
